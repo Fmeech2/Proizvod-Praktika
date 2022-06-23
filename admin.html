@@ -3,12 +3,281 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Страницы</title>
+    <title>Страница администратора</title>
+    <!--Регистрация, Заявки, Новые заявки, Профиль, -->
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='programming index.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src='main.js'></script>
+
+    <!-- Только CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Пакет JavaScript с Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Шапка-->
+    <div class="start-top">
+        <div class="shapka">
+            <div class="img_container"> <img src="https://spb.czm.su/sites/default/files/pictures/main-qimg-dc07846206d7a09a3b35151c0135c3b4.png" width="80px" height="70px"></div>
+            <div class="title_up"><h2>Наркологический диспансер</h2></div>
+           <div class="exit"><button class="exit_btn">Выйти</button></div>
+         </div>
+    </div>
+    <!-- Шапка-->
+
+
+    <!-- Шапка-->
+
+
+<div class="gg_content">
+
+            <!--Список обращений-->
+            <div class="start-left">
+                <div class="top_nazvan">Список обращений</div>
+                    <div class="start-right_pl">
+                    <div class="list-group">
+                        <div class="scroll">
+
+                     <!--Не просмотренное сообщений-->       
+                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                            aria-current="true">
+                            <div class="d-flex gap-3 w-100 justify-content-between">
+                                <div>
+                                    <h6 class="mb-3">ФИО</h6>
+                                    <h6 class="mb-1">Тип обращения</h6>
+                                    <div class="com_coob">
+                                        <p class="mb-0 opacity-75" > В
+                                            рамках спецификации современных стандартов,
+                                            интерактивные
+                                            прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
+                                            по отраслям.</p>
+                                    </div>
+                                </div>
+                                <small class="opacity-50 text-nowrap">22:34</small>
+                                <div class="mb-0 text-nowrap">
+                                   <center> <div class="com_vaj">Важно</div>
+                                    <div class="opacity-75">
+                                        <div class="com_stat">В обработке</div>
+                                    </div>
+                                    <div class="opacity-75">
+                                        <div class="status_see_false" id="see">Не просмотрено</div>
+                                    </div>
+                                </center>
+                                </div>
+                            </div>
+                        </a>
+    <!--Не просмотренное сообщений-->
+                        
+    <!--Просмотренное сообщений-->
+                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                        aria-current="true">
+                        <div class="d-flex gap-3 w-100 justify-content-between">
+                            <div>
+                                <h6 class="mb-3">ФИО</h6>
+                                <h6 class="mb-1">Тип обращения</h6>
+                                <div class="com_coob">
+                                    <p class="mb-0 opacity-75" > В
+                                        рамках спецификации современных стандартов,
+                                        интерактивные
+                                        прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
+                                        по отраслям.</p>
+                                </div>
+                            </div>
+                            <small class="opacity-50 text-nowrap">22:34</small>
+                            <div class="mb-0 text-nowrap">
+                               <center> <div class="com_vaj">Важно</div>
+                                <div class="opacity-75">
+                                    <div class="com_stat">В обработке</div>
+                                </div>
+                                <div class="opacity-75">
+                                    <div class="status_see_true">Просмотрено</div>
+                                </div>
+                            </center>
+                            </div>
+                        </div>
+                    </a>
+ <!--Просмотренное сообщений-->        
+
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                            aria-current="true">
+                            <div class="d-flex gap-3 w-100 justify-content-between">
+                                <div>
+                                    <h6 class="mb-3">ФИО</h6>
+                                    <h6 class="mb-1">Тип обращения</h6>
+                                    <div class="com_coob">
+                                        <p class="mb-0 opacity-75" > В
+                                            рамках спецификации современных стандартов,
+                                            интерактивные
+                                            прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
+                                            по отраслям.</p>
+                                    </div>
+                                </div>
+                                <small class="opacity-50 text-nowrap">22:34</small>
+                                <div class="mb-0 text-nowrap">
+                                   <center> <div class="com_vaj">Важно</div>
+                                    <div class="opacity-75">
+                                        <div class="com_stat">В обработке</div>
+                                    </div>
+                                    <div class="opacity-75">
+                                        <div class="status_see_false" id="see">Не просмотрено</div>
+                                    </div>
+                                </center>
+                                </div>
+                            </div>
+                        </a>
+
+                        
+                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                        aria-current="true">
+                        <div class="d-flex gap-3 w-100 justify-content-between">
+                            <div>
+                                <h6 class="mb-3">ФИО</h6>
+                                <h6 class="mb-1">Тип обращения</h6>
+                                <div class="com_coob">
+                                    <p class="mb-0 opacity-75" > В
+                                        рамках спецификации современных стандартов,
+                                        интерактивные
+                                        прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
+                                        по отраслям.</p>
+                                </div>
+                            </div>
+                            <small class="opacity-50 text-nowrap">22:34</small>
+                            <div class="mb-0 text-nowrap">
+                               <center> <div class="com_vaj">Важно</div>
+                                <div class="opacity-75">
+                                    <div class="com_stat">В обработке</div>
+                                </div>
+                                <div class="opacity-75">
+                                    <div class="status_see_true">Просмотрено</div>
+                                </div>
+                            </center>
+                            </div>
+                        </div>
+                    </a>  
+                  
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                    aria-current="true">
+                    <div class="d-flex gap-3 w-100 justify-content-between">
+                        <div>
+                            <h6 class="mb-3">ФИО</h6>
+                            <h6 class="mb-1">Тип обращения</h6>
+                            <div class="com_coob">
+                                <p class="mb-0 opacity-75" > В
+                                    рамках спецификации современных стандартов,
+                                    интерактивные
+                                    прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
+                                    по отраслям.</p>
+                            </div>
+                        </div>
+                        <small class="opacity-50 text-nowrap">22:34</small>
+                        <div class="mb-0 text-nowrap">
+                           <center> <div class="com_vaj">Важно</div>
+                            <div class="opacity-75">
+                                <div class="com_stat">В обработке</div>
+                            </div>
+                            <div class="opacity-75">
+                                <div class="status_see_false" id="see">Не просмотрено</div>
+                            </div>
+                        </center>
+                        </div>
+                    </div>
+                </a>
+
+                
+                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                aria-current="true">
+                <div class="d-flex gap-3 w-100 justify-content-between">
+                    <div>
+                        <h6 class="mb-3">ФИО</h6>
+                        <h6 class="mb-1">Тип обращения</h6>
+                        <div class="com_coob">
+                            <p class="mb-0 opacity-75" > В
+                                рамках спецификации современных стандартов,
+                                интерактивные
+                                прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
+                                по отраслям.</p>
+                        </div>
+                    </div>
+                    <small class="opacity-50 text-nowrap">22:34</small>
+                    <div class="mb-0 text-nowrap">
+                       <center> <div class="com_vaj">Важно</div>
+                        <div class="opacity-75">
+                            <div class="com_stat">В обработке</div>
+                        </div>
+                        <div class="opacity-75">
+                            <div class="status_see_true">Просмотрено</div>
+                        </div>
+                    </center>
+                    </div>
+                </div>
+            </a>  
+
+                </div>
+            </div>
+       </div>
+
+        </div>
+        <div class="box_message"><h1 class="message">Новых сообщений нет</h1></div>
+    </div>
+ <!--Список обращений-->
+ 
+ <div class="container_j">
+    <div class="container_title">
+        <h4>Смена секретного ключа</h4>
+    </div>
+    <div class="container_new_key">
+        <div class="icon_key"> 
+            <img src="https://www.pngitem.com/pimgs/m/383-3833985_reset-icon-password-password-reset-icon-white-hd.png" width="25px">
+        </div>
+        <div class="new_key_text">
+            <input type="password">
+        </div>
+    </div>
+<div class="container_true_key">
+    <div class="true_text_key">
+        <h6>XADS-ASDA-SDSD-ASDC</h6>
+    </div>
+</div>
+<div class="container_btn">
+    <button class="btn_key">Подвердить</button>
+</div>
+ </div>
+    
+    
+    
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-12 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    +
+                </a>
+                <span class="text-muted">© 2022 Официальный сайт для подачи заявок, при неисправностях.</span>
+            </div>
+        </footer>
+    </div>
+
     
 </body>
+
 </html>
