@@ -43,24 +43,24 @@
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; justify-content: center; ">
             <!--Этот див тебе не нужен-->
             <div class="position-absolute top-50 start-50 translate-middle">
-            <form>
+            <form action="../MySQL/identification.php" method="post">
                <div style="font-size: 140%; margin: 10px 0 7px 0;">Войдите, чтобы оставить заявку</div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Логин</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Логин">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="DBLogin" placeholder="Логин">
                    
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Пароль</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="DBPassword" placeholder="Пароль">
                     <small id="emailHelp" class="form-text text-muted" >Если забыли логин/пароль, то обратитесь к администрации.</small>
                 </div>
                 <div style="margin-top: 10px;">
                     <button type="submit" class="btn btn-primary">Войти</button>
-                    <button type="submit" class="btn btn-outline-secondary">Регистрация</button>
+                    <a href="../reg/"> <button type="button" class="btn btn-outline-secondary">Регистрация</button></a>
                  </div>
-                 <small id="emailHelp" class="form-text text-muted" >Впервые здесь? Тогда сначала <a href="" class="btn-link">зарегестрируйтесь.</a> </small>
+                 <small id="emailHelp" class="form-text text-muted" >Впервые здесь? Тогда сначала <a href="../reg/" class="btn-link">зарегестрируйтесь.</a> </small>
                
             </form>
         </div>

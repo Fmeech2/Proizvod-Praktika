@@ -43,18 +43,18 @@
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; justify-content: center; ">
             <!--Этот див тебе не нужен-->
             <div class="position-absolute top-50 start-50 translate-middle">
-                <form>
+                <form action="../MySQL/Register.php" method="post">
                     <div style="font-size: 170%; margin: 10px 0 7px 0;">Регистрация</div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Логин</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Придумайте себе логин">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            name="DBLogin" placeholder="Придумайте себе логин">
                         <small id="emailHelp" class="form-text text-muted">Хорошо запомните ваш логин и пароль.</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Пароль</label>
                         <input type="password" class="form-control" id="exampleInputPassword1"
-                            placeholder="Придумайте пароль">
+                        name="DBPassword" placeholder="Придумайте пароль">
                         <small id="passwordHelpInline" class="text-muted">
                             Длина должна составлять 6-20 символов.
                         </small>
@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Секретный код</label>
                         <input type="text" class="form-control" id="exampleInputPassword3"
-                            placeholder=" Код выдаётся администратором лично">
+                        name="DBsekret_kod"  placeholder=" Код выдаётся администратором лично">
                         <small id="passwordHelpInline2" class="text-muted">
                             Обратитесь к администратору, что бы получить проверочный код.
                         </small>
@@ -80,11 +80,11 @@
                             персональных данных в соответствии с Политикой конфиденциальности</label>
                     </div>
                     <div>
-                        <a href="" class="btn-link">Политика конфиденциальности</a>
+                        <a href="../MyAdmin/Privacy Policy.txt" class="btn-link">Политика конфиденциальности</a>
                     </div>
                     <button type="submit" style="width: 432px;" class="btn btn-primary">Зарегестрироваться</button>
                     <div class="form-group">
-                        <small id="emailHelp" class="form-text text-muted"><a href="" class="btn-link">Уже
+                        <small id="emailHelp" class="form-text text-muted"><a href="../login/" class="btn-link">Уже
                                 зарегистрированы?</a> </small>
                     </div>
                 </form>

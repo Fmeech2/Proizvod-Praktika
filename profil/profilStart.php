@@ -1,17 +1,107 @@
+<?php
+$mysql=new mysqli('localhost','root','root','revolutionary-db');
+
+$login = $_COOKIE['l1'];
+$password = $_COOKIE['p1'];
+$result = $mysql->query("SELECT * FROM `user` 
+WHERE `Login` = '$login' 
+AND `Password` = '$password'");
+
+$user=$result->fetch_assoc();
+
+if($user===null){//Если данные пользователя не совпадают в бд
+    $mysql->close();
+    setcookie('p1','',time()+60*60*24*356,"/");
+    header('Location: /login/');
+    exit();
+}
+$Name = $user['Name'];
+$SName =$user['SName'];
+$PName =$user['PName'];
+$Email=$user['Email'];
+
+ if($Name==''||$SName==''||$PName==''){
+//заставляем ввести фио
+
+
+$mysql=new mysqli('localhost','root','root','revolutionary-db');
+$login = $_COOKIE['l1'];
+$password = $_COOKIE['p1'];
+$result = $mysql->query("SELECT * FROM `user` 
+WHERE `Login` = '$login' 
+AND `Password` = '$password'");
+
+
+
+
+$user=$result->fetch_assoc();
+
+if($user===null){
+    $mysql->close();
+    setcookie('p1','',time()+60*60*24*356,"/");
+    echo"Юзер не найден";
+    exit();
+}
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Профиль</title>
+    <title>Завершение регистрации</title>
     <!-- Заявки,  Профиль, -->
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='programming profil.css'>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='..\main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\programming profil.css'>
+    <script src='..\main.js'></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src='main.js'></script>
 
     <!-- Только CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,13 +136,18 @@
 
 <body>
 
-
+<form action="../MySQL/ProfilEditStart.php" method="post">
     <div class="start">
         <!--Этот див тебе не нужен-->
         <div style="width: 100%;   ">
             <!--Этот див тебе не нужен-->            
 
             <div class="padding" style="margin-top: 100px;">
+            <div style="    
+            font-size: 200%;
+            margin-left:350px;
+            margin-bottom:10px;">
+            Продолжите регистрацию</div>
                 <div class="row container d-flex justify-content-center ">
                     <div class="col-xl-6 col-md-12 ">
                         <div class="card user-card-full shadow mb-5 bg-white rounded">
@@ -64,10 +159,10 @@
                                                 class="img-radius" width="100" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                         </div>
                                         <h6 class="f-w-600"><a href="" style="  text-decoration: none;
-                                            color: rgb(255, 255, 255);">Изменить аватарку</a></h6>
+                                            color: rgb(255, 255, 255);">Профиль</a></h6><!--Изменить аватарку-->
                                               
                                      
-                                        <button style="margin-top: 30px;" type="button" class="btn btn-light btn-sm">Сохранить</button>
+                                        <button style="margin-top: 30px;" type="submit" class="btn btn-light btn-sm">Сохранить и<br>продолжить</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
@@ -79,27 +174,27 @@
                                                     <span class="input-group-text"
                                                         id="inputGroup-sizing-sm">Фамилия</span>
                                                 </div>
-                                                <input type="text" class="form-control"
+                                                <input name="SName" type="text" class="form-control"
                                                     aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-sm">
+                                                    aria-describedby="inputGroup-sizing-sm" value="<?=$user['SName']?>" placeholder="Обязательное поле*">
                                             </div>
                                             <div class="input-group input-group-sm mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"
-                                                        id="inputGroup-sizing-sm">Имя        </span>
+                                                    id="inputGroup-sizing-sm">Имя        </span>
                                                 </div>
-                                                <input type="text" class="form-control"
+                                                <input name="Name" type="text" class="form-control"
                                                     aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-sm">
+                                                    aria-describedby="inputGroup-sizing-sm" value="<?=$user['Name']?>" placeholder="Обязательное поле*">
                                             </div>
                                             <div class="input-group input-group-sm mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"
                                                         id="inputGroup-sizing-sm">Отчество</span>
                                                 </div>
-                                                <input type="text" class="form-control"
+                                                <input name="PName" type="text" class="form-control"
                                                     aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-sm">
+                                                    aria-describedby="inputGroup-sizing-sm" value="<?=$user['PName']?>" placeholder="Обязательное поле*">
                                             </div>
 
 
@@ -113,9 +208,9 @@
                                                 <span class="input-group-text"
                                                     id="inputGroup-sizing-sm">Email</span>
                                             </div>
-                                            <input type="text" class="form-control"
+                                            <input name="Email" type="email" class="form-control"value="<?=$user['Email']?>"
                                                 aria-label="Sizing example input"
-                                                aria-describedby="inputGroup-sizing-sm" placeholder="">
+                                                aria-describedby="inputGroup-sizing-sm" placeholder="Необязательное поле">
                                         </div>
                                      
                                     </div>
@@ -142,7 +237,11 @@
         </footer>
     </div>
 
-
+    </form>
 </body>
 
 </html>
+<?php 
+exit();
+}
+?>

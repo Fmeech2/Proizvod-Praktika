@@ -1,0 +1,9 @@
+<!--
+    
+юзеры
+CREATE TABLE `revolutionary-db`.`user` ( `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT , `Login` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , `Password` VARCHAR(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL , `Name` VARCHAR(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL , `SName` VARCHAR(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL , `PName` VARCHAR(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL , `Email` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL , UNIQUE `id` (`id`)) ENGINE = MyISAM CHARSET=utf8 COLLATE utf8_general_ci;
+
+сообщения
+CREATE TABLE `revolutionary-db`.`message` ( `id` INT(16) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id сообщения' , `IdUser` INT(11) NOT NULL COMMENT 'id Отправителя заявки' , `IdUniqueApplication` INT(11) NOT NULL COMMENT 'id Обращения' , `Date` DATE NULL COMMENT 'Дата сообщения' , `Division` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'Подразделение' , `Type` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'Тип обращения' , `Necessity` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'Важность обращения (от 1 до 3)' , `Appeal` VARCHAR(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'Само сообщение' , PRIMARY KEY (`id`)) ENGINE = MyISAM CHARSET=utf8 COLLATE utf8_general_ci;
+
+-->
