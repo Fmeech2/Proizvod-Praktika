@@ -32,10 +32,10 @@ $Appeal = filter_var(trim($_POST['Appeal']),FILTER_SANITIZE_STRING);
 
 
 $iduser=$user['id'];
-$Date=date('Y-m-d H:i:s');
+$Date=date("Y-m-d H:i:s"); 
 
-$mysql->query("INSERT INTO `message` (`IdUser`, `IdUniqueApplication`, `Date`, `Division`, `Type`, `Necessity`, `Appeal`) 
-VALUES('$iduser','$MaxIdOperation','$Date','$Division','$Type','$Necessity','$Appeal')");
+$mysql->query("INSERT INTO `message` (`IdUser`, `IdUniqueApplication`, `Date`, `Division`, `Type`, `Necessity`, `Appeal`, `IdSenderMessage`) 
+VALUES('$iduser','$MaxIdOperation','$Date','$Division','$Type','$Necessity','$Appeal','$iduser')");
 
 
 $mysql->close();

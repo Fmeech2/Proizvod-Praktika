@@ -25,20 +25,42 @@ body{
 .start-left{
 margin: 10px 10px 10px 30px;
 padding: 0px 0px 20px 0px;
-width: 47%;
+width: 48%;
+max-height: 440px;
 background-color: rgb(255, 255, 255);
 border-radius: 10px;
 }
 .start-right{
-    margin: 10px 30px 10px auto; /*вверх, право, низ, лево*/
+    margin: 10px 20px 10px auto; /*вверх, право, низ, лево*/
     width: 47%;
 }
-.start-right_pl{
-    border-radius: 0 0 40px 40px;
-    background-color: rgba(189, 189, 189, 0.212);   
-
-    padding: 0px; 
+.start-right-Mess-SUPER{
+    width: 47%;
 }
+.start-right-Mess{
+    margin: 10px 20px 10px auto; /*вверх, право, низ, лево*/
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: auto;
+}
+.start-left-Mess{
+    margin: 10px 10px 10px 30px;
+    padding: 0px 0px 20px 0px;
+    width: 48%;
+    }
+    .start-right_pl{
+        border-radius: 0 0 40px 40px;
+        background-color: rgba(189, 189, 189, 0.212);   
+    
+        padding: 0px; 
+    }
+    .start-right_pl2{
+        border-radius: 0 0 0px 0px;
+        background-color: rgba(189, 189, 189, 0.212);   
+    
+        padding: 0px; 
+    }
 .top_nazvan{
     border-radius: 10px 10px 0 0;
     padding: 4px 20px 4px 20px;
@@ -80,10 +102,23 @@ width: 25%;
     max-height: 48px;
     overflow: hidden;
 }
-.com_vaj {
+.com_vaj1 {
+    font-weight: bold;
+    background-color: rgb(45, 126, 7);
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    color: aliceblue;
+}
+.com_vaj2 {
     font-weight: bold;
     background-color: rgb(255, 168, 68);
-    background-color: rgb(45, 126, 7);
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    color: aliceblue;
+}
+.com_vaj3 {
+    font-weight: bold;
+
     background-color: rgb(255, 68, 68);
     padding: 0 10px 0 10px;
     border-radius: 10px;
@@ -138,9 +173,16 @@ background-color: rgb(8, 185, 255) ;
 color: black; font-style:oblique;
 border-color: rgb(41, 142, 201);}
 
-.scroll{
-    height: 50vh;
-    overflow: auto;
+.scroll{    
+    height: 68vh;
+    overflow: auto;    
+}
+.scroll2{    
+    height: 60vh;
+    overflow: auto;    
+}
+.scroll2::-webkit-scrollbar{    
+    width: 0;
 }
 
 .status_see_false{
@@ -244,7 +286,7 @@ height: 550px;
 .start-left_1{
     margin-left: 25%;
     padding: 0px 0px 20px 0px;
-    width: 47%;
+    width: 48%;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     }

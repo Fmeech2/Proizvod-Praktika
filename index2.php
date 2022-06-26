@@ -29,31 +29,39 @@
         <!--Этот див тебе не нужен-->
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
             <!--Этот див тебе не нужен-->
-            <!-- Шапка-->
-            <div style="margin-bottom: 70px; width:100%;">
+                   <!-- Шапка-->
+                   <div style="margin-bottom: 70px; width:100%;">
                 <header class="p-2 bg-dark text-white">
                     <div class="container">
-                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <div
+                            class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                            <img src="https://spb.czm.su/sites/default/files/pictures/main-qimg-dc07846206d7a09a3b35151c0135c3b4.png" width="60px" height="60px">
+                                <img src="https://spb.czm.su/sites/default/files/pictures/main-qimg-dc07846206d7a09a3b35151c0135c3b4.png"
+                                    width="60px" height="60px">
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                
+                                <li><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>
+                                <li><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>
+                                <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
 
                             <div class="text-end">
-                                <a class="a" href="/profil">
-                                    <button type="button" class="btn btn-outline-light me-2">
-                                        Редактировать профиль
-                                    </button>
-                                </a>
-                                <button type="button" class="btn">
+                                <form action="/MySQL/end.php" method="post">
                                     <a class="a" href="/profil">
-                                        <div class="exit">
-                                            <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png" style="border-radius: 50%;" width="50" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
-                                        </div>
+                                        <button type="submit" class="btn btn-outline-light me-2">
+                                            Выйти из профиля
+                                        </button>
                                     </a>
-                                </button>
+                                    <button type="button" class="btn">
+                                        <a class="a" href="/profil">
+                                            <div class="exit">
+                                                <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png"
+                                                    style="border-radius: 50%;" width="50"
+                                                    alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
+                                            </div>
+                                        </a>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -134,7 +142,7 @@
 $mysql=new mysqli('localhost','root','root','revolutionary-db');
 
 $resultMessage = $mysql->query("SELECT * FROM `message` 
-WHERE `IdUser` = '$userID'");
+WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
 
 $message=$resultMessage->fetch_assoc();
 
@@ -153,28 +161,55 @@ if($message===null){//Если нет ни одного сообщения от 
    ';
 }
 else{//Если сообщения всё же есть в бд
-
-    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    while($message!==null){
+        $IdAppeal=$message['IdUniqueApplication'];
+        $globally_appeal = $mysql->query("SELECT * FROM `globally-appeal` 
+        WHERE `IdAppeal` = '$IdAppeal' ");
+        $globally_appeal = $globally_appeal->fetch_assoc();
+        $globally_appeal_Division=  $globally_appeal['Division'];
+        $globally_appeal_Type=      $globally_appeal['Type'];
+        $globally_appeal_Necessity= $globally_appeal['Necessity'];
+        $globally_appeal_IdAppeal=  $globally_appeal['IdAppeal'];
+        if($message['Necessity']=="1"){
+            $Necessity="Не срочно";
+            $Nclass="com_vaj1";
+        }
+        else if($message['Necessity']=="2"){
+            $Necessity="Важно";
+            $Nclass="com_vaj2";
+        }
+        else if($message['Necessity']=="3"){
+            $Necessity="Экстренно";
+            $Nclass="com_vaj3";
+        }
+        $IdUnikMessage=$message['IdUniqueApplication'];
+        ?>
+  
+    <a href="MySQL\NewOldNewMessage.php?message=<?=$IdUnikMessage?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
     <div class="d-flex gap-3 w-100 justify-content-between">
         <div>
-            <h6 class="mb-0">Тип обращения</h6>
+            <h6 class="mb-0"><?=$message['Type']?></h6>
             <div class="com_coob">
-                <p class="mb-0 opacity-75 d-inline-block text-truncate" style="width:400px;"> В
-                    рамках спецификации современных стандартов,
-                    интерактивные
-                    прототипы лишь добавляют фракционных разногласий и ассоциативно распределены
-                    по отраслям.</p>
+                <p class="mb-0 opacity-75 d-inline-block text-truncate" style="width:360px;">
+                <?=$message['Appeal']?>
+            </p>
             </div>
         </div>
-        <small class="opacity-50 text-nowrap">22:34</small>
+        <small class="opacity-50 text-nowrap"> <?=substr($message['Date'], 5,  11)?></small>
         <div class="mb-0 text-nowrap">
-            <div class="com_vaj">Важно</div>
+            <div class="<?=$Nclass?>">
+            <?=$Necessity?>
+            </div>
             <div class="opacity-75">
                 <div class="com_stat">в обработке</div>
             </div>
         </div>
     </div>
 </a>
+
+<?php
+$message=$resultMessage->fetch_assoc();
+    }
 }
 $mysql->close();
 ?>
