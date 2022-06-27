@@ -22,20 +22,22 @@ $MaxIdOperation=$MaxIdOperation->fetch_assoc();
 $MaxIdOperation=$MaxIdOperation['IdUniqueApplication'];
 $MaxIdOperation=$MaxIdOperation+1;
 
-
-$Division =filter_var(trim($_POST['Division']),FILTER_SANITIZE_STRING);
-$Type =filter_var(trim($_POST['Type']),FILTER_SANITIZE_STRING);
-$Necessity =filter_var(trim($_POST['Necessity']),FILTER_SANITIZE_STRING);
 $Appeal = filter_var(trim($_POST['Appeal']),FILTER_SANITIZE_STRING);
 
 
+$Division = filter_var(trim($_POST['Division']),FILTER_SANITIZE_STRING);
+$Type =     filter_var(trim($_POST['Type']),FILTER_SANITIZE_STRING);
+$Necessity =filter_var(trim($_POST['Necessity']),FILTER_SANITIZE_STRING);
+$IdAppeal = $MaxIdOperation;
+$mysql->query("INSERT INTO `globally-appeal` (`Division`, `Type`, `Necessity`, `IdAppeal`) 
+VALUES('$Division','$Type','$Necessity','$IdAppeal')");
 
 
 $iduser=$user['id'];
 $Date=date("Y-m-d H:i:s"); 
 
-$mysql->query("INSERT INTO `message` (`IdUser`, `IdUniqueApplication`, `Date`, `Division`, `Type`, `Necessity`, `Appeal`, `IdSenderMessage`) 
-VALUES('$iduser','$MaxIdOperation','$Date','$Division','$Type','$Necessity','$Appeal','$iduser')");
+$mysql->query("INSERT INTO `message` (`IdUser`, `IdUniqueApplication`, `Date`, `Appeal`, `IdSenderMessage`) 
+VALUES('$iduser','$MaxIdOperation','$Date','$Appeal','$iduser')");
 
 
 $mysql->close();

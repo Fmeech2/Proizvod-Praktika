@@ -161,8 +161,15 @@ if($message===null){//Если нет ни одного сообщения от 
    ';
 }
 else{//Если сообщения всё же есть в бд
-    while($message!==null){
-        $IdAppeal=$message['IdUniqueApplication'];
+   
+    $stack = array("0");
+                               
+                           
+
+    while ($message !== null) {
+        $IdAppeal = $message['IdUniqueApplication'];
+ 
+       if(!in_array($IdAppeal, $stack)){
         $globally_appeal = $mysql->query("SELECT * FROM `globally-appeal` 
         WHERE `IdAppeal` = '$IdAppeal' ");
         $globally_appeal = $globally_appeal->fetch_assoc();
@@ -170,15 +177,15 @@ else{//Если сообщения всё же есть в бд
         $globally_appeal_Type=      $globally_appeal['Type'];
         $globally_appeal_Necessity= $globally_appeal['Necessity'];
         $globally_appeal_IdAppeal=  $globally_appeal['IdAppeal'];
-        if($message['Necessity']=="1"){
+        if($globally_appeal_Necessity=="1"){
             $Necessity="Не срочно";
             $Nclass="com_vaj1";
         }
-        else if($message['Necessity']=="2"){
+        else if($globally_appeal_Necessity=="2"){
             $Necessity="Важно";
             $Nclass="com_vaj2";
         }
-        else if($message['Necessity']=="3"){
+        else if($globally_appeal_Necessity=="3"){
             $Necessity="Экстренно";
             $Nclass="com_vaj3";
         }
@@ -188,7 +195,7 @@ else{//Если сообщения всё же есть в бд
     <a href="MySQL\NewOldNewMessage.php?message=<?=$IdUnikMessage?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
     <div class="d-flex gap-3 w-100 justify-content-between">
         <div>
-            <h6 class="mb-0"><?=$message['Type']?></h6>
+            <h6 class="mb-0"><?=$globally_appeal_Type?></h6>
             <div class="com_coob">
                 <p class="mb-0 opacity-75 d-inline-block text-truncate" style="width:360px;">
                 <?=$message['Appeal']?>
@@ -207,7 +214,9 @@ else{//Если сообщения всё же есть в бд
     </div>
 </a>
 
-<?php
+<?php     
+ array_push($stack, $IdAppeal);
+                                    }
 $message=$resultMessage->fetch_assoc();
     }
 }
