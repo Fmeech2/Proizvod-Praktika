@@ -145,12 +145,44 @@ width: 25%;
     border-radius: 10px;
     color: aliceblue;
 }
-.com_stat {
+.com_stat1 {
     background-color: rgb(45, 126, 7);
     padding: 0 10px 0 10px;
     border-radius: 10px;
     color: aliceblue;
     margin-top: 10px;
+}
+.com_stat2 {
+    background-color: rgb(255, 168, 68);
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-top: 10px;
+}
+.com_stat3 {
+    background-color: rgb(88, 88, 88);
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-top: 10px;
+}
+.com_stat_btn {
+    background-color: rgb(230, 142, 43);
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    border: none;
+    color: aliceblue;
+    margin-top: 10px;
+    font-weight: 700;
+}
+.com_stat_btn2 { 
+    background-color: rgb(88, 88, 88);
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    border: none;
+    color: aliceblue;
+    margin-top: 10px;
+    font-weight: 700;
 }
 .hr{
     margin: 0 10px 0 10px;

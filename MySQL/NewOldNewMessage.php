@@ -1,3 +1,43 @@
+<?php 
+
+if($_COOKIE['p1']==''){//Если пользователь ещё не логинился
+    header('Location: /login/');
+    exit();
+}
+
+
+$login = $_COOKIE['l1'];
+$password = $_COOKIE['p1'];
+
+
+$mysql=new mysqli('localhost','root','root','revolutionary-db');
+
+$result = $mysql->query("SELECT * FROM `user` 
+WHERE `Login` = '$login' 
+AND `Password` = '$password'");
+$user=$result->fetch_assoc();
+
+if($user===null){//Если данные пользователя не совпадают в бд
+    $mysql->close();
+    setcookie('p1','',time()+60*60*24*356,"/");
+    header('Location: /login/');
+    exit();
+}
+$userID=$user['id'];
+//Если пользователь успешно зашёл
+
+
+
+$adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
+$adminid=$adminPanelIDproverka->fetch_assoc();
+$mysql->close();
+if($adminid['IdAdmin']==$userID){
+    require 'NewOldNewMessageAdmin.php';
+    exit();
+}
+
+?>
+
 
 
 <!DOCTYPE html>
@@ -142,6 +182,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                     $globally_appeal_Type =      $globally_appeal['Type'];
                                     $globally_appeal_Necessity = $globally_appeal['Necessity']; 
                                     $globally_appeal_IdAppeal =  $globally_appeal['IdAppeal'];
+                                    $globally_appeal_process =   $globally_appeal['process'];
                                     if ($globally_appeal_Necessity == "1") {
                                         $Necessity = "Не срочно";
                                         $Nclass = "com_vaj1";
@@ -152,6 +193,17 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                         $Necessity = "Экстренно";
                                         $Nclass = "com_vaj3";
                                     }
+                                    if ($globally_appeal_process == "1") {
+                                        $process = "в обработке";
+                                        $NclassProcess = "com_stat1";
+                                    } else if ($globally_appeal_process == "2") {
+                                        $process = "завершено";
+                                        $NclassProcess = "com_stat2";
+                                    } else if ($globally_appeal_process == "3") {
+                                        $process = "отменено";
+                                        $NclassProcess = "com_stat3";
+                                    }
+                                    
                                     $IdUnikMessage = $message['IdUniqueApplication'];
                             ?>
 
@@ -175,7 +227,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                                     <?= $Necessity ?>
                                                 </div>
                                                 <div class="opacity-75">
-                                                    <div class="com_stat">в обработке</div>
+                                                    <div class="<?=$NclassProcess?>"><?=$process?></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,6 +266,17 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                             $globally_appeal_Type =      $globally_appeal['Type'];
                             $globally_appeal_Necessity = $globally_appeal['Necessity'];
                             $globally_appeal_IdAppeal =  $globally_appeal['IdAppeal'];
+                            $globally_appeal_process =   $globally_appeal['process'];
+                            if ($globally_appeal_process == "1") {
+                                $process = "в обработке";
+                                $NclassProcess = "com_stat1";
+                            } else if ($globally_appeal_process == "2") {
+                                $process = "завершено";
+                                $NclassProcess = "com_stat2";
+                            } else if ($globally_appeal_process == "3") {
+                                $process = "отменено";
+                                $NclassProcess = "com_stat3";
+                            }
                             if ($globally_appeal_Necessity == "1") {
                                 $Necessity = "Не срочно";
                                 $Nclass = "com_vaj1";
@@ -248,14 +311,21 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                 <?= $Necessity ?>
                             </div>
                             <div class="opacity-75">
-                                <div class="com_stat" style="margin: 0 0 0 10px;">в обработке</div>
-                            </div>
+                                                    <div class="<?=$NclassProcess?>" style="margin-top:0;"><?=$process?></div>
+                                                </div>
                             <?php
                             }
                             ?>
                            
                         </div>
-                        <div class="top_nazvan_4"><?=$globally_appeal_Division?></div>
+                        <div class="top_nazvan_4"  style="display: flex;flex-wrap: wrap;padding-bottom:10px;">
+                        <div style="margin-right: 10px;  margin-top: 10px;  "><?=$globally_appeal_Division?></div>
+                        <?php if($globally_appeal_process==1){?>
+                        <form action="/MySQL/progress.php?i=<?=$globally_appeal_IdAppeal?>" method="post">
+                        <button type="submit" name="yes" class="com_stat_btn" >Закрыть обращение</button>                        
+                                </form>
+                                <?php }?>
+                    </div>
                         <div class="start-right_pl2">
                             <div id="scrolVnizJs" class="scroll2">
                                 <div class="list-group">
@@ -383,6 +453,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
     </div>
 
     <script type="text/javascript">
+        let andegraynd= true;
         var block = document.getElementById("scrolVnizJs");
         block.scrollTop = block.scrollHeight;
 
@@ -391,8 +462,11 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
 var input = document.getElementById("input");
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
+    if(andegraynd){
+        andegraynd=!andegraynd;
    event.preventDefault();
    document.getElementById("input_btn").click();
+    }
   }
 });
 </script>

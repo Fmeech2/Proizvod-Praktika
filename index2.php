@@ -190,6 +190,17 @@ else{//Если сообщения всё же есть в бд
         $globally_appeal_Type=      $globally_appeal['Type'];
         $globally_appeal_Necessity= $globally_appeal['Necessity'];
         $globally_appeal_IdAppeal=  $globally_appeal['IdAppeal'];
+        $globally_appeal_process =   $globally_appeal['process'];
+        if ($globally_appeal_process == "1") {
+            $process = "в обработке";
+            $NclassProcess = "com_stat1";
+        } else if ($globally_appeal_process == "2") {
+            $process = "завершено";
+            $NclassProcess = "com_stat2";
+        } else if ($globally_appeal_process == "3") {
+            $process = "отменено";
+            $NclassProcess = "com_stat3";
+        }
         if($globally_appeal_Necessity=="1"){
             $Necessity="Не срочно";
             $Nclass="com_vaj1";
@@ -221,8 +232,8 @@ else{//Если сообщения всё же есть в бд
             <?=$Necessity?>
             </div>
             <div class="opacity-75">
-                <div class="com_stat">в обработке</div>
-            </div>
+                                                    <div class="<?=$NclassProcess?>" ><?=$process?></div>
+                                                </div>
         </div>
     </div>
 </a>
