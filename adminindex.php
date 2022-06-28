@@ -40,7 +40,7 @@
                                     width="60px" height="60px">
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <li><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>
+                                <li><a href="/" class="nav-link px-2 text-secondary"> Панель управления</a></li>
                                 <li><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>
                                 <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
@@ -70,15 +70,18 @@
             <!-- Шапка-->
 
             <!--Оставить заявку-->        
-                <div class="start-left">
-                <form action="MySQL\NewMessage.php" method="post">
+            <div style="  width: 48%;">
+                <div class="start-left-admin-panel">
+               
                     <div class="top_zaiv">
-                        Оставить заявку
+                        Изменить настройки
                     </div>
-
-                    <div class="sel_class">
-                        <select name="Division" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="selectID">
-                        <option value="death" selected>Выберите подразделение</option>
+                 <h4 style="margin-left: 20px;margin-bottom: 0px;margin-top: 20px;">Глобальные настройки</h4>
+                 <form action="MySQL\newDivision.php" method="post">
+                    <div class="sel_class_admin">
+                    <label for="exampleFormControlTextarea1"> Выберите, что бы удалить подразделение</label>
+                        <select name="Division" class="form-select form-select-sm" aria-label=".form-select-lg example" id="selectID">
+                            <option value="death" selected>Выберите подразделение</option>
                             <?php
                             $mysql=new mysqli('localhost','root','root','revolutionary-db');
                             $resultDivision = $mysql->query("SELECT * FROM `division`");
@@ -90,10 +93,35 @@
                             }
                             ?>                      
                         </select>
+                    </div>                    
+                    <div class="form_problem">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1"> Добавить подразделение</label>
+                            <textarea name="Appeal" placeholder="Название нового подразделения для добавления." class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                        </div>
                     </div>
 
-                    <div class="sel_class2">
-                    <select  name="Type" class="form-select form-select-sm" aria-label=".form-select-sm example" id="selectID2">
+                    <div style="display: flex;">
+                    <div class="form_btn_div">
+                        <div class="form_btn_a_admin">
+                            <button name="yes" type="submit" class="btn btn-secondary ">Добавить</button>
+                        </div>
+                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                    </div>
+                    <div class="form_btn_div">
+                        <div class="form_btn_a_admin">
+                            <button name="no" type="submit" class="btn btn-outline-danger ">Удалить</button>
+                        </div>
+                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                    </div>
+                    </div>
+                    </form>
+
+
+                    <form action="MySQL\newType.php" method="post">
+                    <div class="sel_class2_admin">
+                    <label for="exampleFormControlTextarea1"> Выберите, что бы удалить Тип обращения</label>
+                        <select  name="Type" class="form-select form-select-sm" aria-label=".form-select-sm example" id="selectID2">
                             <option value="death" selected>Выберите Тип обращения</option>
                             <?php                        
                             $resultType = $mysql->query("SELECT * FROM `type`");
@@ -107,44 +135,123 @@
                         </select>
                     </div>
 
+                    <div class="form_problem">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1"> Добавить тип обращения</label>
+                            <textarea name="Appeal" placeholder="Название нового подразделения для добавления." class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                        </div>
+                    </div>
+
+                    <div style="display: flex;">
+                    <div class="form_btn_div">
+                        <div class="form_btn_a_admin">
+                            <button name="yes" type="submit" class="btn btn-secondary ">Добавить</button>
+                        </div>
+                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                    </div>
+                    <div class="form_btn_div">
+                        <div class="form_btn_a_admin">
+                            <button name="no" type="submit" class="btn btn-outline-danger ">Удалить</button>
+                        </div>
+                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                    </div>
+                    </div>
+                    </form>
+<hr>
+<form action="MySQL\savesettings.php" method="post">
+<?php
+
+$adm = $mysql->query("SELECT * FROM `admin-panel`");
+$admResult =$adm->fetch_assoc();
+
+$SecretKey = $admResult['SecretKey'];
+$ProgramEail = $admResult['ProgramEail'];
+$nickname = $admResult['nickname'];
+$Policy = $admResult['UserАgreement'];
+?>
+<label style="margin-left: 20px;"> <h4>Индивидуальные настройки</h4></label>
+                    <div class="form_problem">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1"> Изменить никнейм</label>
+                            <textarea name="nickname" placeholder="Пользователи будут видеть то имя которое вы напишете сюда." class="form-control" id="exampleFormControlTextarea1" rows="1"><?=$nickname?></textarea>
+                        </div>
+                    </div>
+
+                    <style>
+                    .password {
+	position: relative;
+}
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(/view.svg) 0 0 no-repeat;
+}
+.password-control.view {
+	background: url(/no-view.svg) 0 0 no-repeat;
+}
+</style>
+<script>
+    function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+</script>
+                    <div class="form_problem">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1"> Редактировать секретный код</label>
+                            <div class="password">
+                            <input name="SecretKey" type="password"  placeholder="Код любой длинны нужный пользователю при регистрации." class="form-control" id="password-input"  value="<?=$SecretKey?>">
+                            <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                        </div>
+                        </div>
+                    </div>
+
                     <div class="form_radio">
+                    <label for="exampleFormControlTextarea1"> Отправлять новые обращения так же на почту?</label>
                         <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-white border rounded-5 shadow-sm" id="pillNav2" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-5 active" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(1)" aria-selected="true">Не срочно</button>
+                                <button class="nav-link rounded-5 active" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(1)" aria-selected="true">Отправлять</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(2)" aria-selected="false" tabindex="-1">Важно</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(3)" aria-selected="false" tabindex="-1">Экстренно</button>
+                                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(2)" aria-selected="false" tabindex="-1">Не отправлять</button>
                             </li>
                         </ul>
                     </div>
 
                     <div class="form_problem">
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1"> Опишите вашу проблему</label>
-                            <textarea name="Appeal" placeholder="Нажмите здесь что бы начать писать обращение. 
-
-Не переживайте, если что-то забудете, в последствии можно будет дополнить ваше обращение." class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                            <label for="exampleFormControlTextarea1"> Политика конфиденциальности</label>
+                            <textarea name="Policy" placeholder="На всякий случай на сайте есть место для политики конфиденциальности." class="form-control" id="exampleFormControlTextarea1" rows="2"><?=$Policy?></textarea>
                         </div>
                     </div>
 
                     <div class="form_btn_div">
                         <div class="form_btn_a">
-                            <button type="submit" class="btn btn-secondary ">Отправить</button>
+                            <button type="submit" class="btn btn-danger" style="color: white;">Сохранить все индивидуальные настройки</button>
                         </div>
                         <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
-                </form>
+</form>
                 </div>
+            </div>
             <!--Оставить заявку-->  
 
 
 
             <!--Сообщения-->
             <div class="start-right">
-                <div class="top_nazvan">Ваши обращения</div>
+                <div class="top_nazvan">Полученные обращения</div>
                 <div class="start-right_pl">
                     <div class="scroll">
                         <div class="list-group">
@@ -152,10 +259,8 @@
 
 
 <?php
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
 
-$resultMessage = $mysql->query("SELECT * FROM `message` 
-WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
+$resultMessage = $mysql->query("SELECT * FROM `message` ORDER BY `id` DESC");
 
 $message=$resultMessage->fetch_assoc();
 

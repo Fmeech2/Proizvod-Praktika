@@ -23,12 +23,20 @@ body{
     background-color: rgba(0, 0, 0, 0.322);    
 }
 .start-left{
-margin: 10px 10px 10px 30px;
-padding: 0px 0px 20px 0px;
-width: 48%;
-max-height: 440px;
-background-color: rgb(255, 255, 255);
-border-radius: 10px;
+    margin: 10px 10px 10px 30px;
+    padding: 0px 0px 20px 0px;
+    width: 48%;
+    max-height: 440px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    }
+.start-left-admin-panel{
+        margin: 10px 10px 10px 30px;
+        padding: 0px 0px 20px 0px;
+        min-height: 440px;
+        max-height: auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
 }
 .start-right{
     margin: 10px 20px 10px auto; /*вверх, право, низ, лево*/
@@ -61,16 +69,29 @@ border-radius: 10px;
     
         padding: 0px; 
     }
-.top_nazvan{
-    border-radius: 10px 10px 0 0;
-    padding: 4px 20px 4px 20px;
-    font-weight: 770;
-    font-size: 120%;
-    background-color: rgba(189, 189, 189, 0.212);
-    border: 1px solid rgb(212, 212, 212);
-    border-bottom-style:none;
-}
+    .top_nazvan{
+        border-radius: 10px 10px 0 0;
+        padding: 4px 20px 4px 20px;
+        font-weight: 770;
+        font-size: 120%;
+        background-color: rgba(189, 189, 189, 0.212);
+        border: 1px solid rgb(212, 212, 212);
+        border-bottom-style:none;
+    }
 
+    .top_nazvan_4{
+  
+        padding: 4px 20px 4px 20px;
+        font-weight: 670;
+        font-size: 110%;
+        background-color: rgba(189, 189, 189, 0.212);
+        border: 1px solid rgb(212, 212, 212);
+        border-bottom-style:none;
+        border-top-style:none;
+        border-top:1px solid rgb(212, 212, 212);
+        color: rgb(122, 122, 122);
+    }
+    
 .coment_start{
     /*просто пустой класс, нужен для обьединения <hr>, оставил на будующее пустой css*/
 }
@@ -149,8 +170,15 @@ width: 25%;
 .sel_class{
     margin: 20px 20px 10px 20px;
 }
+.sel_class_admin{
+    margin: 10px 20px 10px 20px;
+}
+
 .sel_class2{
     margin: 10px 20px 10px 20px;
+}
+.sel_class2_admin{
+    margin: 0px 20px 10px 20px;
 }
 #selectID2{
 
@@ -166,6 +194,9 @@ width: 25%;
 }
 .form_btn_a {
     margin: 10px 20px 10px 20px;
+}  
+.form_btn_a_admin {
+    margin: 0px 20px 0px 20px;
 }  
  
 .btn_message{width: 100%; 
@@ -384,3 +415,5 @@ height: 550px;
     #btnsdsa{
         border: none;
     }
+
+    

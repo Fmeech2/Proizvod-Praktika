@@ -80,7 +80,7 @@
                             персональных данных в соответствии с Политикой конфиденциальности</label>
                     </div>
                     <div>
-                        <a href="../MyAdmin/Privacy Policy.txt" class="btn-link">Политика конфиденциальности</a>
+                        <a href="../Privacy Policy/" class="btn-link">Политика конфиденциальности</a>
                     </div>
                     <button type="submit" style="width: 432px;" class="btn btn-primary">Зарегестрироваться</button>
                     <div class="form-group">

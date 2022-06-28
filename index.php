@@ -26,9 +26,18 @@ if($user===null){//Если данные пользователя не совп�
 }
 $userID=$user['id'];
 //Если пользователь успешно зашёл
-$mysql->close();
 
-require 'index2.php';
+
+
+$adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
+$adminid=$adminPanelIDproverka->fetch_assoc();
+$mysql->close();
+if($adminid['IdAdmin']==$userID){
+    require 'adminindex.php';
+}
+else{
+    require 'index2.php';
+}
 ?>
 
 
