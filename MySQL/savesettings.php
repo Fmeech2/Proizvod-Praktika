@@ -1,5 +1,5 @@
 <?php
-    $login = $_COOKIE['l1'];
+ $login = $_COOKIE['l1'];
  $password = $_COOKIE['p1'];
 
 
@@ -25,11 +25,13 @@ if($userID==$AdminUser['IdAdmin']){
    $nickname = filter_var(trim($_POST['nickname']), FILTER_SANITIZE_STRING);
    $SecretKey = filter_var(trim($_POST['SecretKey']), FILTER_SANITIZE_STRING);
    $Policy = filter_var(trim($_POST['Policy']), FILTER_SANITIZE_STRING);
+   $Necessity= filter_var(trim($_POST['Necessity']), FILTER_SANITIZE_STRING);;
 
    $mysql->query("UPDATE `admin-panel` 
    SET `SecretKey` = '$SecretKey', 
    `UserАgreement` = '$Policy', 
-   `nickname` = '$nickname' 
+   `nickname` = '$nickname', 
+   `SendingByMail` = '$Necessity' 
    WHERE `admin-panel`.`id` = 1");
 
    $mysql->close();

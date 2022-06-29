@@ -55,7 +55,7 @@
                                     <button type="button" class="btn">
                                         <a class="a" href="/profil">
                                             <div class="exit">
-                                                <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png"
+                                                <img src="avatar.jpg"
                                                     style="border-radius: 50%;" width="50"
                                                     alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                             </div>
@@ -70,8 +70,9 @@
             <!-- Шапка-->
 
             <!--Оставить заявку-->        
-                <div class="start-left">
-                <form action="MySQL\NewMessage.php" method="post">
+            <div style="  width: 48%;">
+                <div class="start-left2">
+                <form action="MySQL\NewMessage.php" method="post" id="FormIdMess">
                     <div class="top_zaiv">
                         Оставить заявку
                     </div>
@@ -94,7 +95,7 @@
 
                     <div class="sel_class2">
                     <select  name="Type" class="form-select form-select-sm" aria-label=".form-select-sm example" id="selectID2">
-                            <option value="death" selected>Выберите Тип обращения</option>
+                            <option value="death" selected>Выберите тип обращения</option>
                             <?php                        
                             $resultType = $mysql->query("SELECT * FROM `type`");
                             $Type=$resultType->fetch_assoc();
@@ -111,7 +112,7 @@
                         <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-white border rounded-5 shadow-sm" id="pillNav2" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link rounded-5 active" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(1)" aria-selected="true">Не срочно</button>
-                            </li>
+                            </li> 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(2)" aria-selected="false" tabindex="-1">Важно</button>
                             </li>
@@ -132,14 +133,32 @@
 
                     <div class="form_btn_div">
                         <div class="form_btn_a">
-                            <button type="submit" class="btn btn-secondary ">Отправить</button>
+                            <button type="button" onclick="checkMess()" class="btn btn-secondary ">Отправить</button>
                         </div>
                         <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
                 </form>
                 </div>
-            <!--Оставить заявку-->  
+        </div>
+                <script>
+        function checkMess() {
 
+if (document.getElementById('selectID').value=="death")
+    alert("Выберите подразделение");
+
+    else if (document.getElementById('selectID2').value=="death")
+    alert("Выберите тип обращения");    
+    
+    else if (document.getElementById('exampleFormControlTextarea1').value=='')
+        alert("Опишите свою проблемму в обращении. Сейчас оно у вас пустое."); 
+
+else{
+var myform = document.getElementById("FormIdMess");
+    myform.submit();
+}
+}
+    </script>
+            <!--Оставить заявку-->  
 
 
             <!--Сообщения-->

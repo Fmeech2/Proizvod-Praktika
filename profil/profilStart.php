@@ -22,7 +22,7 @@ $Email=$user['Email'];
 
  if($Name==''||$SName==''||$PName==''){
 //заставляем ввести фио
-
+ 
 
 $mysql=new mysqli('localhost','root','root','revolutionary-db');
 $login = $_COOKIE['l1'];
@@ -155,7 +155,7 @@ if($user===null){
                                 <div class="col-sm-4 bg-c-lite-green user-profile ">
                                     <div class="card-block text-center text-white">
                                         <div class="m-b-25">
-                                            <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png" style="border-radius: 50%;"
+                                            <img src="../avatar.jpg" style="border-radius: 50%;"
                                                 class="img-radius" width="100" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                         </div>
                                         <h6 class="f-w-600"><a href="" style="  text-decoration: none;

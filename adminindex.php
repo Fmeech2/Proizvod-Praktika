@@ -55,7 +55,7 @@
                                     <button type="button" class="btn">
                                         <a class="a" href="/profil">
                                             <div class="exit">
-                                                <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png"
+                                                <img src="avatar.jpg"
                                                     style="border-radius: 50%;" width="50"
                                                     alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                             </div>
@@ -106,13 +106,13 @@
                         <div class="form_btn_a_admin">
                             <button name="yes" type="submit" class="btn btn-secondary ">Добавить</button>
                         </div>
-                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                        <input type="text" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
                     <div class="form_btn_div">
                         <div class="form_btn_a_admin">
                             <button name="no" type="submit" class="btn btn-outline-danger ">Удалить</button>
                         </div>
-                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                        <input type="text" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
                     </div>
                     </form>
@@ -147,13 +147,13 @@
                         <div class="form_btn_a_admin">
                             <button name="yes" type="submit" class="btn btn-secondary ">Добавить</button>
                         </div>
-                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                        <input type="text"  value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
                     <div class="form_btn_div">
                         <div class="form_btn_a_admin">
                             <button name="no" type="submit" class="btn btn-outline-danger ">Удалить</button>
                         </div>
-                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                        <input type="text" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
                     </div>
                     </form>
@@ -168,6 +168,7 @@ $SecretKey = $admResult['SecretKey'];
 $ProgramEail = $admResult['ProgramEail'];
 $nickname = $admResult['nickname'];
 $Policy = $admResult['UserАgreement'];
+$SendingByMail=$admResult['SendingByMail'];
 ?>
 <label style="margin-left: 20px;"> <h4>Индивидуальные настройки</h4></label>
                     <div class="form_problem">
@@ -218,13 +219,16 @@ $Policy = $admResult['UserАgreement'];
                     </div>
 
                     <div class="form_radio">
-                    <label for="exampleFormControlTextarea1"> Отправлять новые обращения так же на почту?</label>
+                    <label for="exampleFormControlTextarea1"> О каких событиях отправлять уведомления на почту?</label>
                         <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-white border rounded-5 shadow-sm" id="pillNav2" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-5 active" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(1)" aria-selected="true">Отправлять</button>
+                                <button class="nav-link rounded-5 <?php if($SendingByMail==1)echo "active";?>" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(1)" aria-selected="true">Только о новых заявках</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(2)" aria-selected="false" tabindex="-1">Не отправлять</button>
+                                <button class="nav-link rounded-5 <?php if($SendingByMail==2)echo "active";?>" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(2)" aria-selected="false" tabindex="-1">О всех новых сообщениях</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link rounded-5 <?php if($SendingByMail==3)echo "active";?>" id="profile-tab3" data-bs-toggle="tab" type="button" role="tab" onclick="jsNecessity(3)" aria-selected="false" tabindex="-1">Не о каких</button>
                             </li>
                         </ul>
                     </div>
@@ -232,7 +236,7 @@ $Policy = $admResult['UserАgreement'];
                     <div class="form_problem">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1"> Политика конфиденциальности</label>
-                            <textarea name="Policy" placeholder="На всякий случай на сайте есть место для политики конфиденциальности." class="form-control" id="exampleFormControlTextarea1" rows="2"><?=$Policy?></textarea>
+                            <textarea name="Policy" placeholder="На всякий случай на сайте есть место для политики конфиденциальности." class="form-control" id="exampleFormControlTextarea24" rows="2"><?=$Policy?></textarea>
                         </div>
                     </div>
 
@@ -240,7 +244,7 @@ $Policy = $admResult['UserАgreement'];
                         <div class="form_btn_a">
                             <button type="submit" class="btn btn-danger" style="color: white;">Сохранить все индивидуальные настройки</button>
                         </div>
-                        <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
+                        <input type="text" name="Necessity" id="Necessity" value="<?=$SendingByMail?>" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>
 </form>
                 </div>
@@ -304,7 +308,7 @@ else{//Если сообщения всё же есть в бд
             $NclassProcess = "com_stat2";
         } else if ($globally_appeal_process == "3") {
             $process = "отменено";
-            $NclassProcess = "com_stat3";
+            $NclassProcess = "com_stat3"; 
         }
         if($globally_appeal_Necessity=="1"){
             $Necessity="Не срочно";

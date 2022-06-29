@@ -30,6 +30,14 @@ body{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     }
+    .start-left2{
+        margin: 10px 10px 10px 30px;
+        padding: 0px 0px 20px 0px;
+        min-height: 440px;
+        max-height: auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        }
 .start-left-admin-panel{
         margin: 10px 10px 10px 30px;
         padding: 0px 0px 20px 0px;

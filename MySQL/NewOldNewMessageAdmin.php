@@ -30,7 +30,7 @@
         <!--Этот див тебе не нужен-->
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
             <!--Этот див тебе не нужен-->
-            <!-- Шапка-->
+            <!-- Шапка--> 
             <div style="margin-bottom: 70px; width:100%;">
                 <header class="p-2 bg-dark text-white">
                     <div class="container">
@@ -39,7 +39,7 @@
                                 <img src="https://spb.czm.su/sites/default/files/pictures/main-qimg-dc07846206d7a09a3b35151c0135c3b4.png" width="60px" height="60px">
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <li><a href="/" class="nav-link px-2 text-white"> Оставить заявку </a></li>
+                                <li><a href="/" class="nav-link px-2 text-white"> Панель управления </a></li>
                                 <li><a href="#" class="nav-link px-2 text-secondary"> Сообщения </a></li>
                                 <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
@@ -54,7 +54,7 @@
                                     <button type="button" class="btn">
                                         <a class="a" href="/profil">
                                             <div class="exit">
-                                                <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png" style="border-radius: 50%;" width="50" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
+                                                <img src="../avatar.jpg" style="border-radius: 50%;" width="50" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                             </div>
                                         </a>
                                     </button>
@@ -279,10 +279,12 @@ AND `Password` = '$password'");
                         </div>
                         <div class="top_nazvan_4"  style="display: flex;flex-wrap: wrap;padding-bottom:10px;">
                         <div style="margin-right: 10px;  margin-top: 10px;  "><?=$globally_appeal_Division?></div>
+                        <?php if($_GET['message']!=''){?>
                         <form action="/MySQL/progress.php?i=<?=$globally_appeal_IdAppeal?>" method="post">
                         <button type="submit" name="yes" class="com_stat_btn" >Закрыть обращение</button>
                         <button type="submit" name="no" class="com_stat_btn2" >Отменить обращение</button>
                                 </form>
+                                <?php }?>
                     </div>
                     
                         <div class="start-right_pl2">
@@ -298,7 +300,7 @@ AND `Password` = '$password'");
 
 
                                     <?php
-
+$Otkrit_Dostyp=false;
                                     if ($message === null) { //Если нет ни одного сообщения от пользователя в бд
                                         $mysql->close();
                                         echo '   
@@ -326,6 +328,7 @@ AND `Password` = '$password'");
 </a>
 ';
                                     } else { //Если сообщения всё же есть в бд
+                                        $Otkrit_Dostyp=true;
                                         $NSPid = $message['IdUser'];
                                         $NSPname = $mysql->query("SELECT * FROM `user` 
     WHERE `id` = '$NSPid'");
@@ -385,6 +388,9 @@ AND `Password` = '$password'");
 
                                 </div>
                             </div>
+                            <?php   
+                            if ($Otkrit_Dostyp) { //Если нет ни одного сообщения от пользователя в бд    
+                            ?>
                             <form action="Nextnewmessage.php?Ne=<?=$globally_appeal_Necessity?>&Ty=<?=$globally_appeal_Type?>&Di=<?=$globally_appeal_Division?>&In=<?=$globally_appeal_IdAppeal?>&ir=<?=$NSPid?>" method="post">
                                 <div style="display:flex;">
                                     <input type="text" name="input"  id="input" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 90%;padding: 10px; margin-top:2px;" placeholder="Напишите сообщение...">
@@ -393,6 +399,7 @@ AND `Password` = '$password'");
                                     </button>
                                 </div>
                             </form>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -419,15 +426,7 @@ AND `Password` = '$password'");
 
 
 var input = document.getElementById("input");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    if(andegraynd){
-        andegraynd=false;
-   event.preventDefault();
-   document.getElementById("input_btn").click();
-    }
-  }
-});
+
 </script>
 </body>
 

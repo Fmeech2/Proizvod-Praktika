@@ -39,6 +39,16 @@ if(!($user===null)){//Если чел с таким логином уже ест
 
 
 
+$Secret = $mysql->query("SELECT * FROM `admin-panel`");
+$SecretKey =$Secret->fetch_assoc();
+$SecretKey = $SecretKey['SecretKey'];
+
+if($SecretKey!=$CEKPETHblU_KOD){
+   //Если секреетный код не совпадает при регистрации
+   $mysql->close();
+   header('Location: /reg/indexERROR.php');
+    exit();
+}
 
 
 $mysql->query("INSERT INTO `user` ( `Login`, `Password`) 

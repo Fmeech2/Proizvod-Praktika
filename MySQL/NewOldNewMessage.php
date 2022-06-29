@@ -65,7 +65,7 @@ if($adminid['IdAdmin']==$userID){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
-
+ 
 <body>
 
     <div class="start" style="    background-color: rgba(0, 0, 0, 0.062);   min-height: 600px;">
@@ -96,7 +96,7 @@ if($adminid['IdAdmin']==$userID){
                                     <button type="button" class="btn">
                                         <a class="a" href="/profil">
                                             <div class="exit">
-                                                <img src="http://fmeechcompany.fmeech2.website/Гамбол%20Злыдней.png" style="border-radius: 50%;" width="50" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
+                                                <img src="../avatar.jpg" style="border-radius: 50%;" width="50" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                             </div>
                                         </a>
                                     </button>
@@ -339,7 +339,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
 
 
                                     <?php
-
+$Otkrit_Dostyp=false;
                                     if ($message === null) { //Если нет ни одного сообщения от пользователя в бд
                                         $mysql->close();
                                         echo '   
@@ -367,6 +367,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
 </a>
 ';
                                     } else { //Если сообщения всё же есть в бд
+                                        $Otkrit_Dostyp=true;
                                         $NSPid = $message['IdUser'];
                                         $NSPname = $mysql->query("SELECT * FROM `user` 
     WHERE `id` = '$NSPid'");
@@ -420,12 +421,15 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                     }
                                     $mysql->close();
                                     ?>
-
-
-
-
                                 </div>
                             </div>
+
+                            
+
+
+                            <?php   
+                            if ($Otkrit_Dostyp) { //Если нет ни одного сообщения от пользователя в бд                            
+                            ?>
                             <form action="Nextnewmessage.php?Ne=<?=$globally_appeal_Necessity?>&Ty=<?=$globally_appeal_Type?>&Di=<?=$globally_appeal_Division?>&In=<?=$globally_appeal_IdAppeal?>&ir=<?=$NSPid?>" method="post">
                                 <div style="display:flex;">
                                     <input type="text" name="input"  id="input" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 90%;padding: 10px; margin-top:2px;" placeholder="Напишите сообщение...">
@@ -434,6 +438,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                     </button>
                                 </div>
                             </form>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -453,22 +458,14 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
     </div>
 
     <script type="text/javascript">
-        let andegraynd= true;
+  
         var block = document.getElementById("scrolVnizJs");
         block.scrollTop = block.scrollHeight;
 
 
 
 var input = document.getElementById("input");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    if(andegraynd){
-        andegraynd=!andegraynd;
-   event.preventDefault();
-   document.getElementById("input_btn").click();
-    }
-  }
-});
+;
 </script>
 </body>
 
