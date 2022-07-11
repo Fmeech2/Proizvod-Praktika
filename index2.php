@@ -6,12 +6,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Оставить заявку</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='programming index.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src='main.js'></script>
-
+    
     <!-- Только CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Пакет JavaScript с Popper -->
@@ -21,42 +21,41 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='main_mobile.css'>
 </head>
 
 <body>
 
     <div class="start" style="    background-color: rgba(0, 0, 0, 0.062);   min-height: 1000px;">
         <!--Этот див тебе не нужен-->
-        <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
+        <div class="capsyla2">
             <!--Этот див тебе не нужен-->
                    <!-- Шапка-->
                    <div style="margin-bottom: 70px; width:100%;">
                 <header class="p-2 bg-dark text-white">
-                    <div class="container">
-                        <div
+                    <div  class="container" >
+                        <div id="costil2"
                             class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                                <img src="https://spb.czm.su/sites/default/files/pictures/main-qimg-dc07846206d7a09a3b35151c0135c3b4.png"
-                                    width="60px" height="60px">
+                            <a href="/" id="costil4" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                                <img src="eding4.jpg" class="img_shapka">
                             </a>
-                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <li><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>
-                                <li><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>
-                                <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
+                            <ul id="costil" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li class="mobbail_shapka"><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>
+                                <li class="mobbail_shapka"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>
+                                <li class="mobbail_shapka"><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
 
                             <div class="text-end">
-                                <form action="/MySQL/end.php" method="post">
+                                <form action="/MySQL/end.php" method="post" class="flex_shapka">
                                     <a class="a" href="/profil">
-                                        <button type="submit" class="btn btn-outline-light me-2">
-                                            Выйти из профиля
+                                        <button type="submit" class="btn btn-outline-light me-2" id="costil3">
+                                            <div class="btn_shapka">Выйти из профиля</div>
                                         </button>
                                     </a>
                                     <button type="button" class="btn">
                                         <a class="a" href="/profil">
-                                            <div class="exit">
-                                                <img src="avatar.jpg"
-                                                    style="border-radius: 50%;" width="50"
+                                            <div >
+                                                <img src="avatar.jpg" class="exit"
                                                     alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
                                             </div>
                                         </a>
@@ -70,7 +69,7 @@
             <!-- Шапка-->
 
             <!--Оставить заявку-->        
-            <div style="  width: 48%;">
+            <div class="capsyla">
                 <div class="start-left2">
                 <form action="MySQL\NewMessage.php" method="post" id="FormIdMess">
                     <div class="top_zaiv">
@@ -124,7 +123,7 @@
 
                     <div class="form_problem">
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1"> Опишите вашу проблему</label>
+                            <label for="exampleFormControlTextarea1" id="exampleFormControlTextarea14"> Опишите вашу проблему</label>
                             <textarea name="Appeal" placeholder="Нажмите здесь что бы начать писать обращение. 
 
 Не переживайте, если что-то забудете, в последствии можно будет дополнить ваше обращение." class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
@@ -133,7 +132,7 @@
 
                     <div class="form_btn_div">
                         <div class="form_btn_a">
-                            <button type="button" onclick="checkMess()" class="btn btn-secondary ">Отправить</button>
+                            <button type="button" onclick="checkMess()" class="btn btn-secondary " id="btn_costil">Отправить</button>
                         </div>
                         <input type="text" name="Necessity" id="Necessity" value="1" style="width: 0px; height:0px;border:none; margin: 0;padding: 0;">
                     </div>

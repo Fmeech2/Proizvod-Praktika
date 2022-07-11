@@ -1,19 +1,118 @@
-*{
+@media (min-width: 1280px){
+    .container{
+        width:1264px;
+        margin: 0;
+    }
+}
+
+@media (min-width: 992px){
+    .mb-lg-0 {
+        margin: 0 auto;
+    }
+    #costil2{
+
+        padding: 0;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+    @media (min-width: 576px){
+        .container, .container-sm {
+            max-width: 90%;}
+        }
+        @media (min-width: 768px){
+            .container{width: 95%;}
+        }
+@media (max-width:1280px){
+    .start{
+     
+        max-width: 1280px;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+
+    }
+    .capsyla{
+        width: 94%;
+        margin: 0 auto;
+      }
+      .capsyla2{
+        width: 100%;  
+        display: flex;
+        flex-wrap: wrap;
+         margin-bottom: auto; 
+    }
+    .start-right{
+        display: none;
+    }
+
+.mobbail_shapka{
+font-size: 400%;
+margin-right: auto;
+}
+#costil{
+    width: 75%;
+    display: flex;
+}
+#costil2{
     margin: 0;
     padding: 0;
+    width: 100%;
+    margin: 0 auto;
 }
-body{
-    
-    background-color: rgb(235, 235, 235,0.212);
-}
-.start{
-    width: 1280px;
-    display: flex;
-    margin: auto;
-    justify-content: center;
- 
+#costil3{
+    display: none;
 
 }
+#btn_costil{
+    width: 94%;
+    margin: 3%;
+    height: 200px;
+    border-radius: 50px;
+    font-size: 100%;
+}
+#costil4{
+  
+}
+
+.container{
+    width: 90%;
+}
+
+.img_shapka{
+    width:50%;
+    height:50%;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+.btn_shapka{
+    font-size: 0%;
+border-radius: 0px;
+width: 0px;
+height: 0px;
+}
+.exit {
+    border-radius: 50%;
+     width:200px;
+}
+#FormIdMess{
+    font-size: 600%;
+    border-radius: 40px 40px 0 0;
+}
+
+
+
+
+
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        
+        background-color: rgb(235, 235, 235,0.212);
+    }
 .start-top{
     margin-bottom: 70px;
     padding: 10px;
@@ -36,7 +135,7 @@ body{
         min-height: 440px;
         max-height: auto;
         background-color: rgb(255, 255, 255);
-        border-radius: 10px;
+        border-radius: 40px 40px 10px 10px;
         }
 .start-left-admin-panel{
         margin: 10px 10px 10px 30px;
@@ -45,10 +144,6 @@ body{
         max-height: auto;
         background-color: rgb(255, 255, 255);
         border-radius: 10px;
-}
-.start-right{
-    margin: 10px 20px 10px auto; /*вверх, право, низ, лево*/
-    width: 47%;
 }
 .start-right-Mess-SUPER{
     width: 47%;
@@ -102,11 +197,6 @@ body{
     
 .coment_start{
     /*просто пустой класс, нужен для обьединения <hr>, оставил на будующее пустой css*/
-}
-.container{
-    padding: 0;
-    width:1264px;
-    margin: 0;
 }
 .coment{
 display: flex;
@@ -201,35 +291,66 @@ width: 25%;
     margin: 0 10px 0 10px;
 }
 .top_zaiv{
-    border-radius: 10px 10px 0 0;
-    padding: 4px 20px 4px 20px;
+    border-radius: 40px 40px 0 0;
+    padding: 20px 50px 20px 50px;
     font-weight: 650;
-    font-size: 140%;
+    font-size: 130%;
     background-color: rgb(83, 83, 83);
     color: white;
     
 }
 #selectID{
- 
+ font-size: 90%;
+ border-radius: 40px;
+ padding: 30px 20px 30px 20px;
+
 }
 .sel_class{
-    margin: 20px 20px 10px 20px;
+    margin: 40px 20px 40px 20px;
+    padding: 0 10px;
 }
 .sel_class_admin{
     margin: 10px 20px 10px 20px;
 }
 
 .sel_class2{
-    margin: 10px 20px 10px 20px;
+    margin: 20px 20px 30px 20px;
+    padding: 0 10px;
 }
 .sel_class2_admin{
     margin: 0px 20px 10px 20px;
 }
 #selectID2{
-
+    font-size: 90%;
+    border-radius: 40px;
+    padding: 30px 20px 30px 20px;
+}
+#exampleFormControlTextarea1{
+    font-size: 75%;
+    margin: 0 2%;
+    width: 96%;
+    margin-top: 20px;
+    min-height: 1400px;
+}
+#exampleFormControlTextarea14{
+    margin: 0 4%;
+    width: 92%;
+}
+.form-group{
+    margin-top: 170px;
+    padding: 0 10px;
+    font-size: 120%;
+    line-height:90%;
 }
 .form_radio{
     margin: 10px 20px 10px 20px;
+    padding: 0 10px;
+}
+#pillNav2{
+    border-radius: 100px;
+}
+.nav-item{
+    margin: 10px;
 }
 .form_problem{
     margin: 10px 20px 10px 20px;
@@ -278,11 +399,7 @@ border-color: rgb(41, 142, 201);}
     margin-top: 10px;
     width: 150px;
 }
-.img_shapka{
-    width:60px;
-    height:60px;
-    border-radius: 50%;
-}
+
 .gg_content {
     justify-content:space-between;
     display: flex;
@@ -353,23 +470,7 @@ height: 550px;
 }
 .title_up {
 }
-#costil2{
-    margin: 0;
-    padding: 0;
 
-    
-}
-#costil4{
-    margin: auto 0;
-}
-
-.flex_shapka{
-    display: flex;
-}
-.exit {
-    border-radius: 50%;
-     width:50px;
-}
 .exit_btn{
     background-color: brown;
     color: white;
@@ -395,7 +496,6 @@ height: 550px;
         border-bottom-style:none;
         text-align: center;
     }
-
 
     .Container_mes{
         background-color: rgba(165, 187, 185, 0.849);
@@ -474,28 +574,16 @@ height: 550px;
         width: 50%;
         margin-left: 25%;
     }
-    .nav-item{
-        margin: 0px;
-    }
-    
 
     .a{
+  
         text-decoration: none;
          color: black; 
-         margin: auto 0;
-    } 
-
-
-
+         width: 0px;
+         height: 0px;
+        } 
     #btnsdsa{
         border: none;
     }
-    .capsyla{
-      width: 48%;
-    }
-    .capsyla2{
-        width: 100%;  
-        display: flex;
-        flex-wrap: wrap;
-         margin-bottom: auto; 
-    }
+
+}
