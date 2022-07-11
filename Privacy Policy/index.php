@@ -1,5 +1,5 @@
 <?php
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $result = $mysql->query("SELECT * FROM `admin-panel`");
 $Policy =$result->fetch_assoc();

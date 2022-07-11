@@ -1,5 +1,5 @@
 <?php
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $login = $_COOKIE['l1'];
 $password = $_COOKIE['p1'];
@@ -24,7 +24,7 @@ $Email=$user['Email'];
 //заставляем ввести фио
  
 
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 $login = $_COOKIE['l1'];
 $password = $_COOKIE['p1'];
 $result = $mysql->query("SELECT * FROM `user` 

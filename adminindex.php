@@ -83,7 +83,7 @@
                         <select name="Division" class="form-select form-select-sm" aria-label=".form-select-lg example" id="selectID">
                             <option value="death" selected>Выберите подразделение</option>
                             <?php
-                            $mysql=new mysqli('localhost','root','root','revolutionary-db');
+                            require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
                             $resultDivision = $mysql->query("SELECT * FROM `division`");
                             $Division=$resultDivision->fetch_assoc();
                             while($Division!=''){?>

@@ -1,0 +1,2 @@
+ErrorDocument 404 http://fmeechcompany.fmeech2.website/index.php
+ErrorDocument 403 http://fmeechcompany.fmeech2.website/index.php

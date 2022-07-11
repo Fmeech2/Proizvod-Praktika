@@ -81,7 +81,7 @@
                         <select name="Division" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="selectID">
                         <option value="death" selected>Выберите подразделение</option>
                             <?php
-                            $mysql=new mysqli('localhost','root','root','revolutionary-db');
+                          require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
                             $resultDivision = $mysql->query("SELECT * FROM `division`");
                             $Division=$resultDivision->fetch_assoc();
                             while($Division!=''){?>
@@ -171,7 +171,7 @@ var myform = document.getElementById("FormIdMess");
 
 
 <?php
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $resultMessage = $mysql->query("SELECT * FROM `message` 
 WHERE `IdUser` = '$userID' ORDER BY `id` DESC");

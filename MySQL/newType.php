@@ -1,5 +1,5 @@
 <?php
-    $mysql = new mysqli('localhost', 'root', 'root', 'revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
     if (isset($_POST['no'])) 
     {
         $Type = filter_var($_POST['Type'], FILTER_SANITIZE_STRING);

@@ -1,5 +1,6 @@
-<?php 
-require 'profil\profilStart.php';//  <-- ОБЯЗАТЕЛЬНО ДОЛЖНО СТОЯТЬ В НАЧАЛЕ КАЖДОГО PHP ФАЙЛА  <--
+<?php // видеть все ошибки!
+
+require $_SERVER['DOCUMENT_ROOT'].'/profil/profilStart.php';//  <-- ОБЯЗАТЕЛЬНО ДОЛЖНО СТОЯТЬ В НАЧАЛЕ КАЖДОГО PHP ФАЙЛА  <--
 
 if($_COOKIE['p1']==''){//Если пользователь ещё не логинился
     header('Location: /login/');
@@ -11,7 +12,7 @@ $login = $_COOKIE['l1'];
 $password = $_COOKIE['p1'];
 
 
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $result = $mysql->query("SELECT * FROM `user` 
 WHERE `Login` = '$login' 
@@ -33,10 +34,10 @@ $adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
 $adminid=$adminPanelIDproverka->fetch_assoc();
 $mysql->close();
 if($adminid['IdAdmin']==$userID){
-    require 'adminindex.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/adminindex.php';
 }
 else{
-    require 'index2.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/index2.php';
 }
 ?>
 

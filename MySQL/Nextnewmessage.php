@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\SMTP;
     else{
     $login = $_COOKIE['l1'];
     $password = $_COOKIE['p1'];
-                   $mysql = new mysqli('localhost', 'root', 'root', 'revolutionary-db');
+    require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
                    $result = $mysql->query("SELECT * FROM `user` 
                    WHERE `Login` = '$login' 
                    AND `Password` = '$password'");
@@ -58,10 +58,10 @@ if($SendingByMail==2&&$iduser!=$IdAdmin){
 
 // Подключаем библиотеку PHPMailer
 
-require '../PHPMailer-master/src/PHPMailer.php';
-require '../PHPMailer-master/src/SMTP.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHPMailer-master/src/PHPMailer.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHPMailer-master/src/SMTP.php';
  
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $result = $mysql->query("SELECT * FROM `admin-panel`");
 $result =$result->fetch_assoc();

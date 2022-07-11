@@ -1,4 +1,6 @@
 <?php
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
@@ -8,7 +10,7 @@ if($Appeal==''){
     exit();
 }
 
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $login = $_COOKIE['l1'];
 $password = $_COOKIE['p1'];
@@ -65,10 +67,10 @@ if($SendingByMail==1||$SendingByMail==2){
 
 // Подключаем библиотеку PHPMailer
 
-require '../PHPMailer-master/src/PHPMailer.php';
-require '../PHPMailer-master/src/SMTP.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHPMailer-master/src/PHPMailer.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHPMailer-master/src/SMTP.php';
  
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $result = $mysql->query("SELECT * FROM `admin-panel`");
 $result =$result->fetch_assoc();

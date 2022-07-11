@@ -5,7 +5,7 @@ $password = filter_var(trim($_POST['DBPassword']),FILTER_SANITIZE_STRING);
 
 $password = md5($password."fmeechcompany");//соль хеша
 
-$mysql=new mysqli('localhost','root','root','revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
 $result = $mysql->query("SELECT * FROM `user` 
 WHERE `Login` = '$login' 

@@ -82,13 +82,13 @@
                             $IdUnikmes = $_GET['message'];
 
 
-                            require '../profil\profilStart.php'; //  <-- ОБЯЗАТЕЛЬНО ДОЛЖНО СТОЯТЬ В НАЧАЛЕ КАЖДОГО PHP ФАЙЛА  <--
+                            require $_SERVER['DOCUMENT_ROOT'].'/profil/profilStart.php'; //  <-- ОБЯЗАТЕЛЬНО ДОЛЖНО СТОЯТЬ В НАЧАЛЕ КАЖДОГО PHP ФАЙЛА  <--
 
                             $login = $_COOKIE['l1'];
                             $password = $_COOKIE['p1'];
 
 
-                            $mysql = new mysqli('localhost', 'root', 'root', 'revolutionary-db');
+                            require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 
                             $result = $mysql->query("SELECT * FROM `user` 
 WHERE `Login` = '$login' 

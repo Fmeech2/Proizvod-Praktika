@@ -1,5 +1,5 @@
 <?php
-    $mysql = new mysqli('localhost', 'root', 'root', 'revolutionary-db');
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
 if (isset($_POST['no'])) 
 {
     $Division = filter_var($_POST['Division'], FILTER_SANITIZE_STRING);
