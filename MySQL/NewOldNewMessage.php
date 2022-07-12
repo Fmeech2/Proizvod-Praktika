@@ -74,7 +74,7 @@ if($adminid['IdAdmin']==$userID){
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
             <!--Этот див тебе не нужен-->
             <!-- Шапка-->
-            <div style="margin-bottom: 70px; width:100%;">
+            <div class="costil12">
                 <header class="p-2 bg-dark text-white">
                     <div  class="container" >
                         <div id="costil2"
@@ -316,7 +316,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                 <?= $Necessity ?>
                             </div>
                             <div class="opacity-75">
-                                                    <div class="<?=$NclassProcess?>" style="margin-top:0;"><?=$process?></div>
+                                                    <div class="<?=$NclassProcess?>" style="margin-top:0;" ><?=$process?></div>
                                                 </div>
                             <?php
                             }
@@ -390,16 +390,16 @@ $Otkrit_Dostyp=false;
 
                                             <!--Начало сообщения-->
                                             <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                                                <div class="d-flex gap-3 w-100 justify-content-between">
+                                                <div class="d-flex gap-3 w-100 justify-content-between"  id="costil11">
                                                     <div>
                                                         <?php
                                                         if ($message['IdSenderMessage'] == $admin_id) { ?>
-                                                            <h6 class="mb-0"><?= $admin_nickname ?> <small class="opacity-50 text-nowrap">
+                                                            <h6 id="costil10" class="mb-0"><?= $admin_nickname ?> <small id="costil9" class="opacity-50 text-nowrap">
                                                                     <?= substr($message['Date'], 5,  11) ?>
                                                                 </small></h6>
                                                         <?php } else { ?>
                                                             <h6 class="mb-0" style="display:flex;">
-                                                                <div style="margin-left: auto;"> <small class="opacity-50 text-nowrap">
+                                                                <div  id="costil10"  style="margin-left: auto;"> <small id="costil9" class="opacity-50 text-nowrap">
                                                                         <?= substr($message['Date'], 5,  11) ?>
                                                                     </small> <?= $NSPname  ?> </div>
                                                             </h6>
@@ -408,7 +408,7 @@ $Otkrit_Dostyp=false;
 
 
                                                         <div>
-                                                            <p class="mb-0 opacity-75 d-inline-block " style="width:565px;">
+                                                            <p class="mb-0 opacity-75 d-inline-block " id="costil11">
                                                                 <?= $message['Appeal'] ?>
                                                             </p>
                                                         </div>
@@ -439,8 +439,8 @@ $Otkrit_Dostyp=false;
                             <form action="Nextnewmessage.php?Ne=<?=$globally_appeal_Necessity?>&Ty=<?=$globally_appeal_Type?>&Di=<?=$globally_appeal_Division?>&In=<?=$globally_appeal_IdAppeal?>&ir=<?=$NSPid?>" method="post">
                                 <div style="display:flex;">
                                     <input type="text" name="input"  id="input" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 90%;padding: 10px; margin-top:2px;" placeholder="Напишите сообщение...">
-                                    <button id="input_btn" type="submit" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 50px; height: 50px; margin-left: 10px;margin-top:10px;">
-                                        <img src="../sam.png" style="width: 30px; height: 30px; ">
+                                    <button id="input_btn" type="submit" class="shadow-sm mb-1 bg-white rounded">
+                                        <img src="../sam.png" class="costil13">
                                     </button>
                                 </div>
                             </form>
