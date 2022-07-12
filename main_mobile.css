@@ -14,6 +14,7 @@
             max-width: 90%;}}
         @media (min-width: 768px){
             .container{width: 95%;}}
+   
 
 
 
@@ -653,5 +654,74 @@ display: none;
  }
  #costil14{
 
- }
 }
+#costil15{
+font-size: 400%;
+}
+#costil16{  
+    font-size: 600%;
+    margin-left:0px;
+    margin-bottom:10px;
+}
+#costil17{  
+    font-size: 600%;
+display: none;
+}
+#costil19{
+    border-radius: 50%;
+    width: 200px;
+}
+#costil20{
+    font-size: 400%;
+}
+#costil21{
+    font-size: 300%;
+}
+#inputGroup-sizing-sm{
+    font-size: 400%;
+}
+.form-control{
+    font-size: 300%;
+}
+#costil22{
+    width:800px;
+}
+#costil23{
+    width:1200px;
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) and (max-width: 1279px){
+    #costil19{
+        border-radius: 50%;
+        width: 100px;
+    }}

@@ -43,7 +43,7 @@
                                 <li class="mobbail_shapka"><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>                                
                                 <li class="mobbail_shapka" id="sh_mobbail"><a href="/MySQL/NewOldNewMessageMobile.php" class="nav-link px-2 text-white"> Сообщения </a></li> <!--//для телефона-->
                                 <li class="mobbail_shapka" id="sh_pk"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>  <!--//для пк-->
-                       
+                                <li class="mobbail_shapka" id="sh_pk"><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
 
                             <div class="text-end">
