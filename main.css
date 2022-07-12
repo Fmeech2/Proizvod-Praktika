@@ -65,6 +65,11 @@ body{
     padding: 0px 0px 20px 0px;
     width: 48%;
     }
+    .start-left-Mess2{
+        margin: 10px 10px 10px 30px;
+        padding: 0px 0px 20px 0px;
+        width: 48%;
+        }
     .start-right_pl{
         border-radius: 0 0 40px 40px;
         background-color: rgba(189, 189, 189, 0.212);   
@@ -498,4 +503,19 @@ height: 550px;
         display: flex;
         flex-wrap: wrap;
          margin-bottom: auto; 
+    }
+    #sh_pk{
+        display: block;
+    }
+    #sh_mobbail{
+        display: none;
+    }
+    .Start-costil{
+        width: 100%; 
+         display: flex;
+         flex-wrap: wrap; 
+         margin-bottom: auto; 
+    }
+    #costil5{
+        max-width:360px;
     }

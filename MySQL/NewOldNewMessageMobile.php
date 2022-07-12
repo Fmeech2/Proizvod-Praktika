@@ -48,7 +48,7 @@ if($adminid['IdAdmin']==$userID){
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Оставить заявку</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
-    <meta name='viewport' >
+    <meta name="viewport" > 
     <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
     <link rel='stylesheet' type='scss' media='screen' href='../programming message.css'>
     <script src='../main.js'></script>
@@ -71,7 +71,7 @@ if($adminid['IdAdmin']==$userID){
 
     <div class="start" style="    background-color: rgba(0, 0, 0, 0.062);   min-height: 600px;">
         <!--Этот див тебе не нужен-->
-        <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
+        <div class="Start-costil">
             <!--Этот див тебе не нужен-->
             <!-- Шапка-->
             <div style="margin-bottom: 70px; width:100%;">
@@ -114,7 +114,7 @@ if($adminid['IdAdmin']==$userID){
 
 
             <!--Сообщения-->
-            <div class="start-left-Mess">
+            <div class="start-left-Mess2">
                 <div class="top_nazvan">Ваши обращения</div>
                 <div class="start-right_pl">
                     <div class="scroll">
@@ -210,32 +210,38 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                     
                                     $IdUnikMessage = $message['IdUniqueApplication'];
                             ?>
-
-                                    <a href="?message=<?= $IdUnikMessage ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+<!--Здесь мобильные изменения начинаются-->
+                                    <a href="NewOldNewMessage.php?message=<?= $IdUnikMessage ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"  >
                                         <div class="d-flex gap-3 w-100 justify-content-between">
-                                            <div>
-                                                <h6 class="mb-0">
+                                        <small class="opacity-50 text-nowrap" style="  position: absolute;  right:20px;">
+                                                <?= substr($message['Date'], 5,  11) ?>
+                                            </small>
+
+                                  
+                                            <div  style="margin-left:40px;">
+                                                <h6 class="mb-0" id="costil7">
                                                     <?= $globally_appeal_Type ?>
                                                 </h6>
                                                 <div class="com_coob">
-                                                    <p class="mb-0 opacity-75 d-inline-block text-truncate" style="width:360px;">
+                                                    <p class="mb-0 opacity-75 d-inline-block text-truncate" id="costil5">
                                                         <?= $message['Appeal'] ?>
                                                     </p>
                                                 </div>
                                             </div>
-                                            <small class="opacity-50 text-nowrap">
-                                                <?= substr($message['Date'], 5,  11) ?>
-                                            </small>
+                                            
                                             <div class="mb-0 text-nowrap">
-                                                <div class="<?= $Nclass ?>">
+                                                <div id="costil6" class="<?= $Nclass ?>">
                                                     <?= $Necessity ?>
                                                 </div>
                                                 <div class="opacity-75">
                                                     <div class="<?=$NclassProcess?>"><?=$process?></div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            </div>
+
+                                  
                                     </a>
+<!--Здесь мобильные изменения заканчиваются-->
 
                             <?php
                                     array_push($stack, $IdAppeal);
@@ -300,12 +306,11 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                 </div>
             </div>
             <!--Сообщения-->
-            <div class="start-right-Mess-SUPER">
+            <div class="start-right-Mess-SUPER2">
                 <div class="start-right-Mess">
                     <div class="start-rieght">
-                        <div class="top_nazvan" style="display:flex; flex-wrap:wrap;">
-                            <div class="costil8">Выбранное обращение</div>
-                        
+                        <div class="top_nazvan" style="display:flex;">
+                            <div>Выбранное обращение</div>
                             <?php
                             if ($IdUnikmes == '') { //Если пользователем ещё не вибранно ни одно сообщение
                                 $mysql->close();
@@ -320,12 +325,11 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                                 </div>
                             <?php
                             }
-                            ?>                           
+                            ?>
+                           
                         </div>
-
-
                         <div class="top_nazvan_4"  style="display: flex;flex-wrap: wrap;padding-bottom:10px;">
-                        <div style="margin-right: 10px;  margin-top: 10px;  width:100%;"><?=$globally_appeal_Division?></div>
+                        <div style="margin-right: 10px;  margin-top: 10px;  "><?=$globally_appeal_Division?></div>
                         <?php if($globally_appeal_process==1){?>
                         <form action="/MySQL/progress.php?i=<?=$globally_appeal_IdAppeal?>" method="post">
                         <button type="submit" name="yes" class="com_stat_btn" >Закрыть обращение</button>                        

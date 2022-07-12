@@ -6,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Оставить заявку</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" >
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='programming index.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -40,9 +40,10 @@
                                 <img src="eding4.jpg" class="img_shapka">
                             </a>
                             <ul id="costil" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <li class="mobbail_shapka"><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>
-                                <li class="mobbail_shapka"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>
-                                <li class="mobbail_shapka"><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
+                                <li class="mobbail_shapka"><a href="/" class="nav-link px-2 text-secondary"> Оставить заявку</a></li>                                
+                                <li class="mobbail_shapka" id="sh_mobbail"><a href="/MySQL/NewOldNewMessageMobile.php" class="nav-link px-2 text-white"> Сообщения </a></li> <!--//для телефона-->
+                                <li class="mobbail_shapka" id="sh_pk"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>  <!--//для пк-->
+                       
                             </ul>
 
                             <div class="text-end">

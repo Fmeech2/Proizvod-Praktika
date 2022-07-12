@@ -141,13 +141,8 @@ height: 0px;
         border-radius: 10px;
 }
 .start-right-Mess-SUPER{
-    display: block;
-    width: 100%;
-    font-size: 400%;
-  }
-  .start-right-Mess-SUPER2{
-    display: none;
-  }
+  display: none;
+}
 .start-right-Mess{
     margin: 10px 20px 10px auto; /*вверх, право, низ, лево*/
     width: 100%;
@@ -167,7 +162,15 @@ height: 0px;
     
         padding: 0px; 
     }
-
+    .top_nazvan{
+        border-radius: 10px 10px 0 0;
+        padding: 4px 20px 4px 20px;
+        font-weight: 770;
+        font-size: 120%;
+        background-color: rgba(189, 189, 189, 0.212);
+        border: 1px solid rgb(212, 212, 212);
+        border-bottom-style:none;
+    }
 
     .top_nazvan_4{
   
@@ -582,14 +585,11 @@ height: 550px;
      margin-bottom: auto; 
 }
 .start-left-Mess{
-display: none;
+    margin: 10px  0;
+    padding: 0px 0px 20px 0px;
+    width: 100%;
+    font-size: 600%;
     }
-    .start-left-Mess2{
-        margin: 10px  0;
-        padding: 0px 0px 20px 0px;
-        width: 100%;
-        font-size: 600%;
-        }
 .mb-0{
     font-size: 80%;
 }
@@ -614,17 +614,5 @@ display: none;
 #costil7{
     margin-top: 60px;
     width:765px;
- }
- .top_nazvan{
-    border-radius: 10px 10px 0 0;
-    padding: 4px 20px 4px 20px;
-    font-weight: 770;
-    font-size: 120%;
-    background-color: rgba(189, 189, 189, 0.212);
-    border: 1px solid rgb(212, 212, 212);
-    border-bottom-style:none;
-}
- .costil8{
-    width: 1000px;
  }
 }
