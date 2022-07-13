@@ -60,7 +60,7 @@
                     <button type="submit" class="btn btn-primary">Войти</button>
                     <a href="../reg/"> <button type="button" class="btn btn-outline-secondary">Регистрация</button></a>
                  </div>
-                 <small id="emailHelp" class="form-text text-muted" >Впервые здесь? Тогда сначала <a href="../reg/" class="btn-link">зарегестрируйтесь.</a> </small>
+                 <small id="emailHelp" class="form-text text-muted" >Впервые здесь? Тогда сначала <a href="../reg/" class="btn-link">зарегистрируйтесь.</a> </small>
                
             </form>
         </div>

@@ -2,6 +2,12 @@
 <html lang="ru">
 
 <head>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Оставить заявку</title>
@@ -36,7 +42,7 @@
                     <div class="container">
                         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                                <img src="https://spb.czm.su/sites/default/files/pictures/main-qimg-dc07846206d7a09a3b35151c0135c3b4.png" width="60px" height="60px">
+                                <img src="../eding4.jpg" width="60px" height="60px">
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                                 <li><a href="/" class="nav-link px-2 text-white"> Панель управления </a></li>
@@ -407,16 +413,7 @@ $Otkrit_Dostyp=false;
         </div>
     </div>
     </div>
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-12 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    +
-                </a>
-                <span class="text-muted">© 2022 Официальный сайт для подачи заявок, при неисправностях.</span>
-            </div>
-        </footer>
-    </div>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 
     <script type="text/javascript">
         let andegraynd= true;

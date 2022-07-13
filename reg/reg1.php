@@ -121,7 +121,7 @@
                         <a href="../Privacy Policy/" class="btn-link">Политика конфиденциальности</a>
                     </div>
                 </form>
-                <button onclick="check()" style="width: 432px;" class="btn btn-primary">Зарегестрироваться</button>
+                <button onclick="check()" style="width: 432px;" class="btn btn-primary">Зарегистрироваться</button>
                 <div class="form-group">
                     <small id="emailHelp" class="form-text text-muted"><a href="../login/" class="btn-link">Уже
                             зарегистрированы?</a> </small>

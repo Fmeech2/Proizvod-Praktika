@@ -44,6 +44,12 @@ if($adminid['IdAdmin']==$userID){
 <html lang="ru">
 
 <head>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Оставить заявку</title>
@@ -456,16 +462,7 @@ $Otkrit_Dostyp=false;
         </div>
     </div>
     </div>
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-12 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    +
-                </a>
-                <span class="text-muted">© 2022 Официальный сайт для подачи заявок, при неисправностях.</span>
-            </div>
-        </footer>
-    </div>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 
     <script type="text/javascript">
   

@@ -689,6 +689,14 @@ display: none;
 #costil23{
     width:1200px;
 }
+.containerFooter{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width:1264px;
+    margin: 0 auto;
+    font-size: 400%;
+}
 
 
 }
