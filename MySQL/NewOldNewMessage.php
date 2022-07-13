@@ -230,7 +230,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                                 </div>
                                             </div>
                                             <small class="opacity-50 text-nowrap">
-                                                <?= substr($message['Date'], 5,  11) ?>
+                                                <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
                                             </small>
                                             <div class="mb-0 text-nowrap">
                                                 <div class="<?= $Nclass ?>">
@@ -401,12 +401,12 @@ $Otkrit_Dostyp=false;
                                                         <?php
                                                         if ($message['IdSenderMessage'] == $admin_id) { ?>
                                                             <h6 id="costil10" class="mb-0"><?= $admin_nickname ?> <small id="costil9" class="opacity-50 text-nowrap">
-                                                                    <?= substr($message['Date'], 5,  11) ?>
+                                                                    <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
                                                                 </small></h6>
                                                         <?php } else { ?>
                                                             <h6 class="mb-0" style="display:flex;">
                                                                 <div  id="costil10"  style="margin-left: auto;"> <small id="costil9" class="opacity-50 text-nowrap">
-                                                                        <?= substr($message['Date'], 5,  11) ?>
+                                                                        <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
                                                                     </small> <?= $NSPname  ?> </div>
                                                             </h6>
                                                         <?php }

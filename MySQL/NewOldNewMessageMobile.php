@@ -220,7 +220,7 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                     <a href="NewOldNewMessage.php?message=<?= $IdUnikMessage ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"  >
                                         <div class="d-flex gap-3 w-100 justify-content-between">
                                         <small class="opacity-50 text-nowrap" style="  position: absolute;  right:20px;">
-                                                <?= substr($message['Date'], 5,  11) ?>
+                                                <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
                                             </small>
 
                                   
@@ -405,12 +405,12 @@ $Otkrit_Dostyp=false;
                                                         <?php
                                                         if ($message['IdSenderMessage'] == $admin_id) { ?>
                                                             <h6 class="mb-0"><?= $admin_nickname ?> <small class="opacity-50 text-nowrap">
-                                                                    <?= substr($message['Date'], 5,  11) ?>
+                                                                    <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
                                                                 </small></h6>
                                                         <?php } else { ?>
                                                             <h6 class="mb-0" style="display:flex;">
                                                                 <div style="margin-left: auto;"> <small class="opacity-50 text-nowrap">
-                                                                        <?= substr($message['Date'], 5,  11) ?>
+                                                                        <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
                                                                     </small> <?= $NSPname  ?> </div>
                                                             </h6>
                                                         <?php }

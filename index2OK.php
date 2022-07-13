@@ -248,7 +248,7 @@ else{//Если сообщения всё же есть в бд
             </p>
             </div>
         </div>
-        <small class="opacity-50 text-nowrap"> <?=substr($message['Date'], 5,  11)?></small>
+        <small class="opacity-50 text-nowrap"> <?=substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2)?></small>
         <div class="mb-0 text-nowrap">
             <div class="<?=$Nclass?>">
             <?=$Necessity?>
