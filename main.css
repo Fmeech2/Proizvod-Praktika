@@ -574,3 +574,26 @@ height: 550px;
         width:1264px;
         margin: 0 auto;
     }
+    .class_img_reference{
+        width: 100%;
+        padding: 0 20px;
+    }
+    .text_img_reference{
+        display:flex; 
+        justify-content: center; 
+        margin-bottom: 20px;
+    }
+    .img_reference{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .img_reference_small{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
