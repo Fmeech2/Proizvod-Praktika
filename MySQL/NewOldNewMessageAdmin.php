@@ -210,7 +210,6 @@ AND `Password` = '$password'");
                             $admin_id = $admin_arr['IdAdmin'];
                             $admin_nickname = $admin_arr['nickname'];
 
-                            $IdUnikMessage = $_GET['message'];
                             $resultMessage = $mysql->query("SELECT * FROM `message` 
             WHERE `IdUniqueApplication` = '$IdUnikMessage' ORDER BY `id`");
 
