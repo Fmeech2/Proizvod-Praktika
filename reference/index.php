@@ -77,7 +77,7 @@ if($adminid['IdAdmin']==$userID){
 
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Редактировать профиль</title>
+    <title>Справки</title>
     <!-- Заявки,  Профиль, -->
     <meta name='viewport'>
 

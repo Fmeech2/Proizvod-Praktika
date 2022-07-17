@@ -36,12 +36,12 @@
                         <div
                             class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                                <img src="eding4.jpg"
-                                    width="60px" height="60px">
+                            <img src="eding4.jpg" class="img_shapka">
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                                 <li><a href="/" class="nav-link px-2 text-secondary"> Панель управления</a></li>
                                 <li><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения  </a></li>
+                                <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-white" id="spravka_shapka"> Справка </a></li>
                                 <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
 

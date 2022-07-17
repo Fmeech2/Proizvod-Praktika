@@ -8,7 +8,7 @@
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!--Мой ксс и джава -->
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='programming.css'>
     <script src='main.js'></script>
     <!--Мой ксс и джава -->
@@ -40,9 +40,10 @@
 <body>
     <div class="start" style="    background-color: rgba(0, 0, 0, 0.0);">
         <!--Этот див тебе не нужен-->
-        <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; justify-content: center; ">
+        <div style="width: 100%;  position: relative;height: 100%;">
             <!--Этот див тебе не нужен-->
-            <div class="position-absolute top-50 start-50 translate-middle">
+            <div id="login_mobail">
+            <div style="margin:auto;">
             <form action="../MySQL/identification.php" method="post">
                <div style="font-size: 140%; margin: 10px 0 7px 0;">Войдите, чтобы оставить заявку</div>
                 <div class="form-group">
@@ -63,6 +64,7 @@
                  <small id="emailHelp" class="form-text text-muted" >Впервые здесь? Тогда сначала <a href="../reg/" class="btn-link">зарегистрируйтесь.</a> </small>
                
             </form>
+            </div>
         </div>
         </div>
     </div>

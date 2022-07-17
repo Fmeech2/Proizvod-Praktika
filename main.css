@@ -598,5 +598,48 @@ height: 550px;
         margin-right: auto;
     }
 
+    #login_mobail{
+        background-repeat: no-repeat;
+        position: fixed;
+        top: 50%;
+        left: 50%;
 
   
+        transform: translate(-50%, -50%) 
+
+    }
+ #costil24{
+   display: none;
+}
+    @media (max-width:1279px){
+        #reg_mobail{
+            zoom: 0.95;  
+                  
+        }
+        #login_mobail{            
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+      
+            transform: translate(-50%, -50%) 
+        }
+    }
+    @media (max-width:400px){    
+        #reg_mobail{
+            zoom: 1.3;   
+            width: 100%;   
+            margin-top: 450px;             
+        }
+        #login_mobail{
+            width: 90%;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+    
+           
+            transform: translate(-50%, -50%) 
+        }
+    }

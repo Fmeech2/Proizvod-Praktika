@@ -8,7 +8,7 @@
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!--Мой ксс и джава -->
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='programming.css'>
     <script src='main.js'></script>
     <!--Мой ксс и джава -->
@@ -22,6 +22,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -30,6 +31,7 @@
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; justify-content: center; ">
             <!--Этот див тебе не нужен-->
             <div class="position-absolute top-50 start-50 translate-middle">
+                <div id="reg_mobail">
                 <form action="../MySQL/Register.php" method="post" id="FormId">
                     <div style="font-size: 170%; margin: 10px 0 7px 0;">Регистрация</div>
                     <div class="form-group">
@@ -114,18 +116,19 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1" style="width: 400px; display: flex; margin-top: 10px;">Я даю согласие на обработку
+                        <label class="form-check-label" for="exampleCheck1" style="max-width: 400px; display: flex; margin-top: 10px;">Я даю согласие на обработку
                             персональных данных в соответствии с Политикой конфиденциальности</label>
                     </div>
                     <div>
                         <a href="../Privacy Policy/" class="btn-link">Политика конфиденциальности</a>
                     </div>
                 </form>
-                <button onclick="check()" style="width: 432px;" class="btn btn-primary">Зарегистрироваться</button>
+                <button onclick="check()" style="max-width: 432px;" class="btn btn-primary">Зарегистрироваться</button>
                 <div class="form-group">
                     <small id="emailHelp" class="form-text text-muted"><a href="../login/" class="btn-link">Уже
                             зарегистрированы?</a> </small>
                 </div>
+            </div>
             </div>
         </div>
     </div>

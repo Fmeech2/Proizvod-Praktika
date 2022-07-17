@@ -704,7 +704,11 @@ display: none;
     font-size: 400%;
 
 }
-
+#costil24{
+   display: block;
+   font-size: 500%;
+   margin-left: 1%;
+}
 
 }
 

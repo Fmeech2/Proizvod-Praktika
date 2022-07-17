@@ -10,7 +10,7 @@
 
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Оставить заявку</title>
+    <title>Ваши заявки</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
@@ -42,7 +42,7 @@
                     <div class="container">
                         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                                <img src="../eding4.jpg" width="60px" height="60px">
+                            <img src="../eding4.jpg" class="img_shapka">
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                                 <li><a href="/" class="nav-link px-2 text-white"> Панель управления </a></li>

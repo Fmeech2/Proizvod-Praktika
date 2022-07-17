@@ -270,6 +270,11 @@ if($user===null){
                     </div>
                 </div>
                 </form>
+                <form action="../MySQL/end.php" method="post">                 
+                                        <button type="submit" class="btn btn-outline-dark me-2" id="costil24">
+                                            <div >Выйти из профиля</div>
+                                        </button>                                                                  
+                </form>
             </div>
 
 

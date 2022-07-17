@@ -52,7 +52,7 @@ if($adminid['IdAdmin']==$userID){
 
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Оставить заявку</title>
+    <title>Ваши заявки</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
     <meta name='viewport' >
     <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
