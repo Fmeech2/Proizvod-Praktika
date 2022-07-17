@@ -143,7 +143,7 @@ else{
                                     <!--//для телефона-->
                                     <li class="mobbail_shapka" id="sh_pk"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-white"> Сообщения </a></li>
                                     <!--//для пк-->
-                                    <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-secondary"> Справка </a></li>
+                                    <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-secondary" id="spravka_shapka"> Справка </a></li>
                                     <li class="mobbail_shapka" id="sh_pk"><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                                 </ul>
 

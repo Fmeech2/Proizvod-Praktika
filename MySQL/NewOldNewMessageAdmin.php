@@ -46,7 +46,8 @@
                             </a>
                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                                 <li><a href="/" class="nav-link px-2 text-white"> Панель управления </a></li>
-                                <li><a href="#" class="nav-link px-2 text-secondary"> Сообщения </a></li>
+                                <li><a href="#" class="nav-link px-2 text-secondary"> Сообщения </a></li>                                
+                                <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-white" id="spravka_shapka"> Справка </a></li>
                                 <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
 
