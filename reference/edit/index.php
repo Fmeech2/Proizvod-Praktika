@@ -1,3 +1,36 @@
+<?php
+
+$login = $_COOKIE['l1'];
+$password = $_COOKIE['p1'];
+
+
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
+
+$result = $mysql->query("SELECT * FROM `user` 
+WHERE `Login` = '$login' 
+AND `Password` = '$password'");
+$user=$result->fetch_assoc();
+
+
+$userID=$user['id'];
+//Если пользователь успешно зашёл
+
+
+
+$adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
+$adminid=$adminPanelIDproverka->fetch_assoc();
+$mysql->close();
+if($adminid['IdAdmin']==$userID){
+    //Открываем страницу админа. Не блокируем доступ к странице, если это админ.
+}
+else{
+     //Чел не админ, ему сюда нельзя.
+      exit();
+}
+?>
+
+
+
 
 
 
@@ -62,21 +95,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Раньше здесь был джейквекри 3.2.1 -->
     <!--Конец стилей редактора профиля-->
-
-
 
 
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='programming index.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-   
 
     <!-- Только CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -84,10 +113,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+    
     <link rel='stylesheet' type='text/css' media='screen' href='../../main_mobile.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -139,77 +171,18 @@
 
                 <!-- Шапка-->
 
+                <a href="../edit_reference?id=new"><h4><button type="button" class="btn btn-outline-dark btn-lg">Добавить справку</button></h4> </a>  
 
 
-                <?php require $_SERVER['DOCUMENT_ROOT'] . '/reference/creator.php';//подключить переход по ссылкам в справке 
-                create("../");//Создать ссылки для переходов?>
+
+    <a href="<?=$a?>1#here"><h4>• Типа уже имеющиеся справки:</h4></a>    
+
+    <a href="<?=$a?>2#here"><h4>• Типа уже имеющиеся справки:</h4></a>  
 
 
-                <h4 id="here" style="margin-top: 70px;">• Что бы оставить заявку:</h4>  
-
-                <p style="margin-left: 20px; font-size:120%;">шаг 1: В шапке сайта нажмите на кнопку "Оставить заявку"     </p>
-                <div style="display: flex; flex-wrap: wrap;">
-
-                    <div class="class_img_reference">
-                        <img src="1.jpg" class="img_reference">
-                        <div class="text_img_reference">
-                             Рисуноки к шагу 1
-                        </div>
-                    </div>
-                    <div  class="class_img_reference">
-                        <img src="2.jpg" class="img_reference">
-                        <div style="display:flex; justify-content: center;margin-bottom: 20px;">
-                            Рисуноки к шагу 1
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <p style="margin-left: 20px; font-size:120%;">шаг 2: Найдите форму отправки заявки.     </p>
-                <div  class="class_img_reference">
-                    <img src="3.jpg" class="img_reference">
-                    <div style="display:flex; justify-content: center;margin-bottom: 20px;">
-                        Рисунок к шагу 2
-                    </div>
-                </div>
-
-                <p style="margin-left: 20px; font-size:120%;">шаг 3: Выберите из уже заготовленных шаблонов своё "подразделение" и свой "Тип обращения" приближенный к вашему. Так же не забудьте указать важность вашего обращения.   </p>
-                <div  class="class_img_reference">
-                    <img src="4.jpg" class="img_reference_small" >
-                    <div style="display:flex; justify-content: center;margin-bottom: 20px;">
-                        Рисунок к шагу 3
-                    </div>
-                </div>
-                
-                <p style="margin-left: 20px; font-size:120%;">шаг 4: После опишите вашу проблему в соответствующей графе. (Не переживайте, если что-то забудете, в последствии можно будет дополнить ваше обращение.)     </p>
-                <div  class="class_img_reference">
-                    <img src="5.jpg" class="img_reference_small" >
-                    <div style="display:flex; justify-content: center;margin-bottom: 20px;">
-                        Рисунок к шагу 4
-                    </div>
-                </div>
-                
-                <p style="margin-left: 20px; font-size:120%;">шаг 5: Нажмите на кнопку отправить.     </p>                
-                <div  class="class_img_reference">
-                    <img src="6.jpg" class="img_reference_small" >
-                    <div style="display:flex; justify-content: center;margin-bottom: 20px;">
-                        Рисунок к шагу 5
-                    </div>
-                </div>
-                
-                <p style="margin-left: 20px; font-size:120%;">шаг 6: После отправки, вы увидети ваше обращение в правой части страницы. Для более подробного изучения этого обращения, нажмите на него.   </p>
-                <div  class="class_img_reference">
-                    <img src="7.jpg" class="img_reference" >
-                    <div style="display:flex; justify-content: center;margin-bottom: 20px;">
-                        Рисунок к шагу 6
-                    </div>
-                </div>
                 <br>  
                 <br>
-                
 
-                
             </div>
         </div>
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php'; ?>

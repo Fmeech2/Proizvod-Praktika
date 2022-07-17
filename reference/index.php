@@ -1,26 +1,29 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . '/MySQL/connectSQL.php';
 $login = $_COOKIE['l1'];
 $password = $_COOKIE['p1'];
+
+
+require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
+
 $result = $mysql->query("SELECT * FROM `user` 
 WHERE `Login` = '$login' 
 AND `Password` = '$password'");
+$user=$result->fetch_assoc();
+
+
+$userID=$user['id'];
+//Если пользователь успешно зашёл
 
 
 
-
-$user = $result->fetch_assoc();
-
-if ($user === null) {
-    $mysql->close();
-    setcookie('p1', '', time() + 60 * 60 * 24 * 356, "/");
-    echo "Юзер не найден";
+$adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
+$adminid=$adminPanelIDproverka->fetch_assoc();
+$mysql->close();
+if($adminid['IdAdmin']==$userID){
+    require $_SERVER['DOCUMENT_ROOT'].'/reference/referenceAdmin.php';
     exit();
 }
-
-
-
 ?>
 
 
