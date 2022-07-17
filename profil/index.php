@@ -135,7 +135,7 @@ if($user===null){
 
 <body>
 
-<form action="../MySQL/ProfilEdit.php" method="post">
+
     <div class="start">
         <!--Этот див тебе не нужен-->
         <div style="width: 100%;   ">
@@ -158,7 +158,7 @@ if($user===null){
                             </ul>
 
                             <div class="text-end">
-                                <form action="/MySQL/end.php" method="post" class="flex_shapka">
+                                <form action="../MySQL/end.php" method="post" class="flex_shapka">
                                     <a class="a" href="/profil">
                                         <button type="submit" class="btn btn-outline-light me-2" id="costil3">
                                             <div class="btn_shapka">Выйти из профиля</div>
@@ -187,6 +187,7 @@ if($user===null){
 <a href="/" style="margin-left: 770px;"  id="costil17">
 <button type="button" class="btn btn-light btn-lg" style="background-color: #d8dde2;">Назад</button>
 </a>
+<form action="../MySQL/ProfilEdit.php" method="post">
             <div  id="costil16">
             Редактировать профиль</div>
                 <div class="row container d-flex justify-content-center ">
@@ -260,6 +261,7 @@ if($user===null){
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
 
 
@@ -269,7 +271,7 @@ if($user===null){
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 
-    </form>
+
 </body>
 
 </html>

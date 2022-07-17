@@ -123,7 +123,7 @@ if($adminid['IdAdmin']==$userID){
 
 <body>
 
-    <form action="../MySQL/ProfilEdit.php" method="post">
+
         <div class="start">
             <!--Этот див тебе не нужен-->
             <div style="width: 100%;   ">
@@ -381,7 +381,7 @@ if($adminid['IdAdmin']==$userID){
             </div>
         </div>
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php'; ?>
-    </form>
+
 </body>
 </html>
 <?php
