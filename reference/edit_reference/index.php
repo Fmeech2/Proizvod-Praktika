@@ -201,8 +201,19 @@ header('Location: /reference/edit_reference?id=end');
                     $IdRef=$IdRef['id'];
                     }
                     $res = $mysql->query("SELECT * FROM `reference` WHERE `reference`.`id` = $IdRef");
-                    $res=$res->fetch_assoc();  
-                    $nameref=$res['name'];    
+                    $res=$res->fetch_assoc(); 
+                    if($res===null){ ?>
+                    <div style="margin-bottom: 10px; font-size:18px;">
+                    Мы ничего не нашли. Такой справки нет. Попробуйте открыть другую или создать новую, потому что возможно она была удалена.
+            </div>
+                    <a href="?id=new"><h4><button type="button" class="btn btn-outline-dark btn-lg">Создать новую справку</button></h4> </a>  
+                        </div></div>
+                        <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php'; ?>
+                        </body></html>
+                        <?php exit();
+                    }
+                    $idres=$res['id']; 
+                    $nameref=$res['name'];
                     $ssilkaref=$res['ssilka'];    
                     $openref=$res['open'];    
                     //Если спрака конкретная, то мы уже знаем результат
@@ -265,6 +276,9 @@ header('Location: /reference/edit_reference?id=end');
                         <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
                             <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Удалить картинку</button>                           
                         </form>
+                        <form action="small_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
+                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Изменить размер</button>                           
+                        </form>
                         </div>                            
                     </div>   
                 <?php }
@@ -286,10 +300,37 @@ header('Location: /reference/edit_reference?id=end');
                 </form>
             </div>
         </div>   
+    <?php  }
 
 
 
-                <?php  }
+
+
+elseif($type==4){?>
+            <div>
+             <img src="../img/<?=$text?>" class="img_reference">
+                        <div style="display: flex;margin-bottom: 20px;">
+                        <form  action="edit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data">
+                            <div style="display: flex;">
+                                <input type="file" name="img_otpravka" style="margin: auto 0;"><br> 
+                                <button type="submit" class="btn btn-outline-success btn-sm" style="margin:10px;">Сохранить картинку</button>                               
+                            </div>  
+                        </form>                
+                        <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
+                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Удалить картинку</button>                           
+                        </form>
+                        <form action="small_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
+                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Изменить размер</button>                           
+                        </form>
+                        </div>                            
+                    </div>  
+
+        
+ <?php  }
+
+
+
+
                             $ref=$refcontent->fetch_assoc();  
                             $stack++;
                         }
@@ -303,14 +344,17 @@ header('Location: /reference/edit_reference?id=end');
   
 
                 </div>
+
                 
 
                 <div style="display: flex;">
-                <form id="add_new_abzats_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_abzats_form', 'add_new_abzats.php','1')">Добавить абзац</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
-                <form id="add_new_img_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_img_form', 'add_new_img.php','2')">Добавить изображение</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
-                <form id="add_new_small_abzats_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_small_abzats_form', 'add_new_small_abzats.php','3')">Добавить подпись к изображению</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
-                </div>
+                <form id="add_new_abzats_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_abzats_form', 'add_new_abzats.php','1','<?=0+$id?>','<?=$IdRef?>')">Добавить абзац</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
+                <form id="add_new_img_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_img_form', 'add_new_img.php','2','<?=0+$id?>','<?=$IdRef?>')">Добавить изображение</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
+                <form id="add_new_small_abzats_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_small_abzats_form', 'add_new_small_abzats.php','3','<?=0+$id?>','<?=$IdRef?>')">Добавить подпись к изображению</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
+               </div>
 
+               <?php if($openref!=3){ ?>
+            <div style="display: flex;flex-wrap:wrap;">
                 <form action="delit_ref.php?id=<?=$IdRef?>" style="margin-top: 50px;" id="FormIdMess" method="POST">
                     <small>* напишите слова "удалить справку", что бы подтвердить удаление</small><br>
                     <div style="display: flex;">
@@ -318,7 +362,41 @@ header('Location: /reference/edit_reference?id=end');
                             <h4><button type="button" class="btn btn-warning btn-sm" onclick="checkMess()">Удалить справку</button></h4>
                     </div>
                 </form>
-
+                <?php 
+                $result = $mysql->query("SELECT * FROM `reference` WHERE `id` = $IdRef");
+                $result = $result->fetch_assoc();
+                $open = $result['open'];
+                $s_true	 = $result['s_true'];
+                $ssilka = $result['ssilka'];
+                ?>
+                <form action="ssilka_edit.php?id=<?=$IdRef?>" method="POST" style="margin-top: 74px; margin-left:70px; display:flex;" id="FormIdMess3" method="POST">
+                    <input value="<?= $ssilka?>" name="ssilkatext" type="text" placeholder="* ссылка на внешний сайт" style="width:400px; padding: 5px;padding-left: 10px; border-radius:8px;  border: 1px solid; margin-bottom: 20px; margin-right:20px">
+                    <h4><button type="submit" class="btn btn-outline-success btn-sm">Сохранить ссылку</button></h4>
+                </form>
+                    <form action="ssilka.php?id=<?=$IdRef?>" method="POST" style=" display:flex; width:100%;" id="FormIdMess3" method="POST">
+                <?php if($s_true=null||$s_true==0)
+                {?>
+                    <h4 style=" width:100%;"><button type="submit" class="btn btn-outline-success btn-block">Справка лежит на этом сайте</button></h4>
+                    <?php
+                } else{ ?>
+                    <h4  style=" width:100%;"><button type="submit" class="btn btn-outline-info btn-block">Справка является ссылкой</button></h4>
+                    <?php
+                }?>
+                </form>
+                <form action="hide.php?id=<?=$IdRef?>" method="POST" style="width:100%;" id="FormIdMess2" method="POST">
+                <?php 
+                if($open=null||$open==0)
+                {?>
+                    <h4 style="width:100%;"><button type="submit" class="btn btn-secondary btn-block">Справка скрыта</button></h4>
+                <?php }
+                else
+                {?>
+                    <h4 style="width:100%;"><button type="submit" class="btn btn-success btn-block">Справка в открытом доступе</button></h4>
+                <?php }
+                ?>                    
+                </form>
+            </div>
+                <?php }?>
 
 
 

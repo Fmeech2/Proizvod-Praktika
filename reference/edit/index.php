@@ -175,23 +175,162 @@ else{
 
 
 
-    <a href="<?=$a?>1#here"><h4>• Типа уже имеющиеся справки:</h4></a>    
-
-    <a href="<?=$a?>2#here"><h4>• Типа уже имеющиеся справки:</h4></a>  
+ 
 
 
-                <br>  
-                <br>
+                <?php
+                    require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';                                  
 
+                ?>
+
+<!--Начало важного контенера-->
+                <div id="result_form">
+             
+                    <?php 
+                    
+                    $stack=0;
+                        
+                    $res = $mysql->query("SELECT * FROM `reference`");//Если справка открыта true
+                    $stack=0;
+                    $res_ar=$res->fetch_assoc();      
+                    if($res_ar===null){ //Если справок нет ?>
+                        <div style="margin-bottom: 10px; font-size:18px;">
+                        Мы ничего не нашли. Похоже, что ещё нет ни одной справки.
+                        </div>                        
+                        <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php'; ?>
+                        </body></html>
+                        <?php exit();
+                    }
+                    while($res_ar!==null){  
+                        
+                    $idres=$res_ar['id']; 
+                    $nameref=$res_ar['name'];
+                    $ssilkaref=$res_ar['ssilka'];  
+                    $ssilkaref=$res_ar['ssilka'];    
+                    $openref=$res_ar['open']; 
+                        ?>
+                        <a href="../edit_reference/?id=<?=$idres?>#here"><h4><?=$nameref?></h4></a> 
+                       
+                        <?php  
+                        $res_ar=$res->fetch_assoc();         
+                        $stack++;
+                    }
+                    $idreference=$_GET['reference'];
+                    if($idreference!==null){
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+
+
+                    
+
+             
+                    $IdRef=$idreference;
+                    
+                    $res = $mysql->query("SELECT * FROM `reference` WHERE `reference`.`id` = $IdRef AND `open` = 1");
+                    $res=$res->fetch_assoc(); 
+                    
+                    $idres=$res['id']; 
+                    $nameref=$res['name'];
+                    $ssilkaref=$res['ssilka'];    
+                    $openref=$res['open'];    
+                    //Если спрака конкретная, то мы уже знаем результат
+                   
+
+                ?>
+
+<!--Начало важного контенера-->
+                <div id="result_form">
+                <h4 id="here" style="margin-top: 70px;"><?= $nameref?></h4>    
+                    <?php 
+                    
+                    $stack=0;
+                        $refcontent = $mysql->query("SELECT * FROM `reference-fields` WHERE `IdReference`='$IdRef' ORDER BY id");
+                        $ref=$refcontent->fetch_assoc();      
+                        while($ref!==null){
+                            $id = $ref['id'];                            
+                            $IdReference = $ref['IdReference'];
+                            $type = $ref['type'];
+                            $text = $ref['text'];
+                           
+
+                            if($type==1){?>
+                            <p style="margin-left: 20px; font-size:120%;"><?=$text?></p>
+                            <?php  
+                            
+                        } elseif($type==2){?>
+                            <div  class="class_img_reference">
+                                <img src="img/<?=$text?>" class="img_reference_small" >                   
+                            </div>
+                            <?php 
+                
+                        } elseif($type==3){?>
+                            <div  class="class_img_reference">
+                                <div style="display:flex; justify-content: center;margin-bottom: 20px;">
+                                <?=$text?>
+                                </div>
+                            </div>
+                            <?php  
+    
+                        } elseif($type==4){?>
+                            <div  class="class_img_reference">
+                                <img src="img/<?=$text?>" class="img_reference" >                   
+                            </div>
+                            <?php 
+                
+                        }
+
+
+
+
+                            $ref=$refcontent->fetch_assoc();  
+                            $stack++;
+                        } 
+                    }
+                        ?>
+                </div>
+<!--Конец важного контенера-->
+
+
+
+
+                </div>
+<!--Конец важного контенера-->
             </div>
         </div>
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php'; ?>
-
     </form>
 </body>
-
 </html>
 <?php
 exit();
-
 ?>

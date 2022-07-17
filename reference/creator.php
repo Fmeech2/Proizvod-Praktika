@@ -8,19 +8,5 @@ function create($a){ ?>
 
 
 <?php } 
-
-
-function create_admin($a){ ?>
-
-
-    <a href="<?=$a?>#"><h4><button type="button" class="btn btn-outline-dark btn-lg">• Справка для сисадмина</button></h4></a>    
-
-    <a href="<?=$a?>edit"><h4> <button type="button" class="btn btn-outline-dark btn-lg">• Редактор справок</button></h4></a>  
-
-
-    <br><br><hr><br>
-
-<?php } 
-
 ?>
 
