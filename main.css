@@ -597,7 +597,13 @@ height: 550px;
         margin-left: auto;
         margin-right: auto;
     }
+    .costil4_mibail{
+        display:flex; 
+        justify-content: center;
+        margin-bottom: 20px;
+    }
 
+    
     #login_mobail{
         background-repeat: no-repeat;
         position: fixed;
@@ -611,6 +617,17 @@ height: 550px;
  #costil24{
    display: none;
 }
+.costil3_mibail{
+    margin-left: 20px; 
+    font-size:120%;
+}
+
+
+
+
+
+
+
     @media (max-width:1279px){
         #reg_mobail{
             zoom: 0.95;  
@@ -625,6 +642,11 @@ height: 550px;
       
             transform: translate(-50%, -50%) 
         }
+
+
+
+
+             
     }
     @media (max-width:400px){    
         #reg_mobail{

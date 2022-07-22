@@ -254,13 +254,13 @@ if($adminid['IdAdmin']==$userID){
                         $openref=$res_ar['open']; 
                         if($s_true=="0"||$s_true===null){
                             ?>
-                            <a href="?reference=<?=$idres?>#here"><h4><?=$nameref?></h4></a> 
+                            <a href="?reference=<?=$idres?>#here"><h4 class="costil_mobail"><?=$nameref?></h4></a> 
                            
                             <?php   
                         }
                         else{                       
                             ?>
-                            <a href="<?= $ssilkaref?>"><h4><?=$nameref?></h4></a> 
+                            <a href="<?= $ssilkaref?>"><h4 class="costil_mobail"><?=$nameref?></h4></a> 
                            
                             <?php  
                         }
@@ -323,7 +323,7 @@ if($adminid['IdAdmin']==$userID){
 
 <!--Начало важного контенера-->
                 <div id="result_form">
-                <h4 id="here" style="margin-top: 70px;"><?= $nameref?></h4>    
+                <h4 id="here" style="margin-top: 70px;" class="costil2_mibail"><?= $nameref?></h4>    
                     <?php 
                     
                     $stack=0;
@@ -337,7 +337,7 @@ if($adminid['IdAdmin']==$userID){
                            
 
                             if($type==1){?>
-                            <p style="margin-left: 20px; font-size:120%;"><?=$text?></p>
+                            <p class="costil3_mibail"><?=$text?></p>
                             <?php  
                             
                         } elseif($type==2){?>
@@ -348,7 +348,7 @@ if($adminid['IdAdmin']==$userID){
                 
                         } elseif($type==3){?>
                             <div  class="class_img_reference">
-                                <div style="display:flex; justify-content: center;margin-bottom: 20px;">
+                                <div class="costil4_mibail">
                                 <?=$text?>
                                 </div>
                             </div>

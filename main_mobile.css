@@ -709,6 +709,41 @@ display: none;
    font-size: 500%;
    margin-left: 1%;
 }
+.costil_mobail{
+    font-size: 500%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+.costil2_mibail{
+    font-size: 500%;
+    margin-left: 3%;
+}
+.costil3_mibail{
+    font-size: 300%;
+    margin-left: 2%;
+}
+.costil4_mibail{
+    display:flex; 
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 300%;
+}
+.img_reference{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img_reference_small{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 
 }
 
