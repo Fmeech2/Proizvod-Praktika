@@ -72,7 +72,49 @@
                 </header>
             </div>
             <!-- Шапка-->
+ <!-- Шапка-->
+ <div class="costil12">
+                <header class="p-2 bg-dark text-white">
+                    <div  class="container" >
+                        <div id="costil2"
+                            class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                            <a href="/" id="costil4" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                                <img src="../eding4.jpg" class="img_shapka">
+                            </a>
+                            <ul id="costil" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                <li class="mobbail_shapka"><a href="/" class="nav-link px-2 text-white"> Оставить заявку</a></li>                                
+                                <li class="mobbail_shapka" id="sh_mobbail"><a href="/MySQL/NewOldNewMessageMobile.php" class="nav-link px-2 text-secondary"> Сообщения </a></li> <!--//для телефона-->
+                                <li class="mobbail_shapka" id="sh_pk"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-secondary"> Сообщения  </a></li>  <!--//для пк-->                                
+                                <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-white" id="spravka_shapka"> Справка </a></li>
+                                <li class="mobbail_shapka" id="sh_pk"><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
+                            </ul>
 
+                            <div class="text-end">
+                                <form action="/MySQL/end.php" method="post" class="flex_shapka">
+                                    <a class="a" href="/profil">
+                                        <button type="submit" class="btn btn-outline-light me-2" id="costil3">
+                                            <div class="btn_shapka">Выйти из профиля</div>
+                                        </button>
+                                    </a>
+                                    <button type="button" class="btn">
+                                        <a class="a" href="/profil">
+                                            <div >
+                                                <img src="../avatar.jpg" class="exit"
+                                                    alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
+                                            </div>
+                                        </a>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>   
+            <!-- Шапка-->
+
+
+
+            
 
             <!--Сообщения-->
             <div class="start-left-Mess">

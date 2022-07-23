@@ -171,7 +171,7 @@ else{
 
                 <!-- Шапка-->
 
-                <a href="../edit_reference?id=new"><h4><button type="button" class="btn btn-outline-dark btn-lg">Добавить справку</button></h4> </a>  
+                <a href="../edit_reference?id=new"><h4><button type="button" class="btn btn-outline-dark btn-lg"  id="costil40">Добавить справку</button></h4> </a>  
 
 
 
@@ -209,7 +209,7 @@ else{
                     $ssilkaref=$res_ar['ssilka'];    
                     $openref=$res_ar['open']; 
                         ?>
-                        <a href="../edit_reference/?id=<?=$idres?>#here"><h4><?=$nameref?></h4></a> 
+                        <a href="../edit_reference/?id=<?=$idres?>#here"><h4  class="costil_mobail" ><?=$nameref?></h4></a> 
                        
                         <?php  
                         $res_ar=$res->fetch_assoc();         

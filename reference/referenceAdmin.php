@@ -177,9 +177,9 @@ else{
 
 
             <!--Включить ссылки админа-->
-            <a href="?reference=0#here" ><h4><button type="button" class="btn btn-outline-dark btn-lg">• Справка для сисадмина</button></h4></a>    
+            <a href="?reference=0#here" ><h4><button type="button" class="btn btn-outline-dark btn-lg" id="costil40">• Справка для сисадмина</button></h4></a>    
 
-            <a href="<?=$a?>edit"><h4> <button type="button" class="btn btn-outline-dark btn-lg">• Редактор справок</button></h4></a>  
+            <a href="edit"><h4> <button type="button" class="btn btn-outline-dark btn-lg" id="costil40">• Редактор справок</button></h4></a>  
 
             <br><br><hr><br>
             <!--Выключить ссылки админа-->
@@ -254,13 +254,13 @@ else{
                     $openref=$res_ar['open']; 
                     if($s_true=="0"||$s_true===null){
                         ?>
-                        <a href="?reference=<?=$idres?>#here"><h4><?=$nameref?></h4></a> 
+                        <a href="?reference=<?=$idres?>#here"><h4 class="costil_mobail"><?=$nameref?></h4></a> 
                        
                         <?php   
                     }
                     else{                       
                         ?>
-                        <a href="<?= $ssilkaref?>"><h4><?=$nameref?></h4></a> 
+                        <a href="<?= $ssilkaref?>"><h4 class="costil_mobail"><?=$nameref?></h4></a> 
                        
                         <?php  
                     }
@@ -322,7 +322,7 @@ else{
 
 <!--Начало важного контенера-->
                 <div id="result_form">
-                <h4 id="here" style="margin-top: 70px;"><?= $nameref?></h4>    
+                <h4 id="here" style="margin-top: 70px;" class="costil2_mibail"><?= $nameref?></h4>    
                     <?php 
                     
                     $stack=0;
@@ -336,7 +336,7 @@ else{
                            
 
                             if($type==1){?>
-                            <p style="margin-left: 20px; font-size:120%;"><?=$text?></p>
+                            <p  class="costil3_mibail" ><?=$text?></p>
                             <?php  
                             
                         } elseif($type==2){?>
@@ -347,7 +347,7 @@ else{
                 
                         } elseif($type==3){?>
                             <div  class="class_img_reference">
-                                <div style="display:flex; justify-content: center;margin-bottom: 20px;">
+                                <div class="costil4_mibail">
                                 <?=$text?>
                                 </div>
                             </div>

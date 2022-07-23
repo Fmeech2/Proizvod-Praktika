@@ -227,8 +227,8 @@ header('Location: /reference/edit_reference?id=end');
                         <div style="display: flex;flex-wrap:wrap; margin-bottom: 20px; width:100%; position: relative;">
                             <form  action="Save_name.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data" style="display: flex;flex-wrap:wrap; width:100%">
                                   
-                                <input name="intext"  style="width: 100%; padding: 4px; padding-left: 10px;font-size:120%;" value="<?=$nameref?>" placeholder="* Название новой справки">                     
-                                <button type="submit" class="btn btn-outline-success btn" style="margin:10px;">Сохранить новое название справки</button>
+                                <input name="intext"  class="costil50" value="<?=$nameref?>" placeholder="* Название новой справки">                     
+                                <button type="submit" class="btn btn-outline-success btn" id="costil51">Сохранить новое название справки</button>
                                  
                             </form>  
                         </div>
@@ -250,12 +250,12 @@ header('Location: /reference/edit_reference?id=end');
                         <div style="display: flex;flex-wrap:wrap; margin-bottom: 20px; width:100%; position: relative;">
                             <form  action="edit_abzats.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data" style="display: flex;flex-wrap:wrap; width:100%">
                                   
-                                <textarea name="intext" onkeyup="textAreaAdjust(this)" onclick="textAreaAdjust(this)" style="width: 90%; height: auto; resize:vertical; padding: 10px;"><?=$text?></textarea>                        
-                                <button type="submit" class="btn btn-outline-success btn-sm" style="margin:10px;">Сохранить абзац</button>
+                                <textarea name="intext" onkeyup="textAreaAdjust(this)" onclick="textAreaAdjust(this)" class="costil60"><?=$text?></textarea>                        
+                                <button type="submit" class="btn btn-outline-success btn-sm" id="costil61">Сохранить абзац</button>
                                  
                             </form>  
                             <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" style="  position: absolute; bottom: 0;left:150px;">
-                                <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Удалить абзац</button>
+                                <button type="submit" class="btn btn-outline-danger btn-sm" id="costil62">Удалить абзац</button>
                             </form>
                         </div>
                     </div>   
@@ -264,20 +264,20 @@ header('Location: /reference/edit_reference?id=end');
 
                             <?php  }
                             elseif($type==2){?>
-                    <div>
+                    <div  class="costil66">
                         <img src="../img/<?=$text?>" class="img_reference_small">
-                        <div style="display: flex;margin-bottom: 20px;">
-                        <form  action="edit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data">
-                            <div style="display: flex;">
-                                <input type="file" name="img_otpravka" style="margin: auto 0;"><br> 
-                                <button type="submit" class="btn btn-outline-success btn-sm" style="margin:10px;">Сохранить картинку</button>                               
+                        <div style="display: flex;margin-bottom: 20px; flex-wrap:wrap;">
+                        <form  action="edit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data"  class="costil66">
+                            <div style="display: flex; flex-wrap:wrap;" class="costil66">
+                                <input type="file" name="img_otpravka"  class="costil63"><br> 
+                                <button type="submit" class="btn btn-outline-success btn-sm"  id="costil64" >Сохранить картинку</button>                               
                             </div>  
                         </form>                
                         <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
-                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Удалить картинку</button>                           
+                            <button type="submit" class="btn btn-outline-danger btn-sm"  id="costil65" >Удалить картинку</button>                           
                         </form>
                         <form action="small_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
-                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Изменить размер</button>                           
+                            <button type="submit" class="btn btn-outline-danger btn-sm" id="costil64" >Изменить размер</button>                           
                         </form>
                         </div>                            
                     </div>   
@@ -289,15 +289,16 @@ header('Location: /reference/edit_reference?id=end');
         <div>
             <div style="display: flex;flex-wrap:wrap; margin-bottom: 20px; width:100%; position: relative;">
                 <form  action="edit_abzats.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data" style="display: flex;flex-wrap:wrap; width:100%">
-                    <div style="width:50%;display: flex; flex-wrap:wrap; margin:0 auto;">
-                        <textarea name="intext" onkeyup="textAreaAdjust(this)" onclick="textAreaAdjust(this)" style="width: 100%; height: 42px; resize:vertical; padding: 10px; margin:0 auto; font-size:80%;"><?=$text?></textarea>                        
-                        <button type="submit" class="btn btn-outline-success btn-sm" style="margin:10px; margin-left:0;">Сохранить подпись</button>
+                    <div class="costil71">
+                        <textarea name="intext" onkeyup="textAreaAdjust(this)" onclick="textAreaAdjust(this)" class="costil67"><?=$text?></textarea>                        
+                        <button type="submit" class="btn btn-outline-success btn-sm" id="costil68">Сохранить подпись</button>
                     </div>  
                      
                 </form>  
-                <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" style="  position: absolute; bottom: 0;left:470px;">
-                    <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Удалить подпись</button>
+                <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" class="costil69">
+                    <button type="submit" class="btn btn-outline-danger btn-sm" id="costil70">Удалить подпись</button>
                 </form>
+               
             </div>
         </div>   
     <?php  }
@@ -307,20 +308,20 @@ header('Location: /reference/edit_reference?id=end');
 
 
 elseif($type==4){?>
-            <div>
+            <div class="costil66">
              <img src="../img/<?=$text?>" class="img_reference">
-                        <div style="display: flex;margin-bottom: 20px;">
-                        <form  action="edit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data">
-                            <div style="display: flex;">
-                                <input type="file" name="img_otpravka" style="margin: auto 0;"><br> 
-                                <button type="submit" class="btn btn-outline-success btn-sm" style="margin:10px;">Сохранить картинку</button>                               
+                        <div style="display: flex;margin-bottom: 20px; flex-wrap:wrap;">
+                        <form  action="edit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST" enctype="multipart/form-data"  class="costil66">
+                            <div style="display: flex; flex-wrap:wrap;" class="costil66">
+                                <input type="file" name="img_otpravka" class="costil63"><br> 
+                                <button type="submit" class="btn btn-outline-success btn-sm" id="costil64" >Сохранить картинку</button>                               
                             </div>  
                         </form>                
                         <form action="delit_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
-                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Удалить картинку</button>                           
+                            <button type="submit" class="btn btn-outline-danger btn-sm"  id="costil65" >Удалить картинку</button>                           
                         </form>
                         <form action="small_img.php?id=<?=$id?>&messId=<?=$IdRef?>" method="POST">
-                            <button type="submit" class="btn btn-outline-danger btn-sm" style="margin:10px;">Изменить размер</button>                           
+                            <button type="submit" class="btn btn-outline-danger btn-sm"  id="costil64" >Изменить размер</button>                           
                         </form>
                         </div>                            
                     </div>  
@@ -347,19 +348,19 @@ elseif($type==4){?>
 
                 
 
-                <div style="display: flex;">
-                <form id="add_new_abzats_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_abzats_form', 'add_new_abzats.php','1','<?=0+$id?>','<?=$IdRef?>')">Добавить абзац</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
-                <form id="add_new_img_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_img_form', 'add_new_img.php','2','<?=0+$id?>','<?=$IdRef?>')">Добавить изображение</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
-                <form id="add_new_small_abzats_form"><h4><button type="button" class="btn btn-outline-dark btn-lg" style="margin:10px;" onclick="sendAjaxForm('result_form', 'add_new_small_abzats_form', 'add_new_small_abzats.php','3','<?=0+$id?>','<?=$IdRef?>')">Добавить подпись к изображению</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
+                <div style="display: flex; flex-wrap:wrap;">
+                <form id="add_new_abzats_form" class="costil53"><h4 class="costil53"><button type="button" class="btn btn-outline-dark btn-lg" id="costil52" onclick="sendAjaxForm('result_form', 'add_new_abzats_form', 'add_new_abzats.php','1','<?=0+$id?>','<?=$IdRef?>')">Добавить абзац</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
+                <form id="add_new_img_form" class="costil53"><h4 class="costil53"><button type="button" class="btn btn-outline-dark btn-lg" id="costil52" onclick="sendAjaxForm('result_form', 'add_new_img_form', 'add_new_img.php','2','<?=0+$id?>','<?=$IdRef?>')">Добавить изображение</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
+                <form id="add_new_small_abzats_form" class="costil53"><h4 class="costil53"><button type="button" class="btn btn-outline-dark btn-lg" id="costil52" onclick="sendAjaxForm('result_form', 'add_new_small_abzats_form', 'add_new_small_abzats.php','3','<?=0+$id?>','<?=$IdRef?>')">Добавить подпись к изображению</button></h4><input name="id" type="text" style="display: none;" value="<?=$IdRef?>"></form>
                </div>
 
                <?php if($openref!=3){ ?>
             <div style="display: flex;flex-wrap:wrap;">
                 <form action="delit_ref.php?id=<?=$IdRef?>" style="margin-top: 50px;" id="FormIdMess" method="POST">
                     <small>* напишите слова "удалить справку", что бы подтвердить удаление</small><br>
-                    <div style="display: flex;">
-                        <input id="selectID" type="text" placeholder="*удалить справку" style="padding: 5px;padding-left: 10px; border-radius:8px;  border: 1px solid; margin-bottom: 20px; margin-right:20px">
-                            <h4><button type="button" class="btn btn-warning btn-sm" onclick="checkMess()">Удалить справку</button></h4>
+                    <div style="display: flex;flex-wrap:wrap;">
+                        <input id="selectID" type="text" placeholder="*удалить справку" class="costil54">
+                            <h4><button type="button" class="btn btn-warning btn-sm" onclick="checkMess()"  id="costil55">Удалить справку</button></h4>
                     </div>
                 </form>
                 <?php 
@@ -369,17 +370,17 @@ elseif($type==4){?>
                 $s_true	 = $result['s_true'];
                 $ssilka = $result['ssilka'];
                 ?>
-                <form action="ssilka_edit.php?id=<?=$IdRef?>" method="POST" style="margin-top: 74px; margin-left:70px; display:flex;" id="FormIdMess3" method="POST">
-                    <input value="<?= $ssilka?>" name="ssilkatext" type="text" placeholder="* ссылка на внешний сайт" style="width:400px; padding: 5px;padding-left: 10px; border-radius:8px;  border: 1px solid; margin-bottom: 20px; margin-right:20px">
-                    <h4><button type="submit" class="btn btn-outline-success btn-sm">Сохранить ссылку</button></h4>
+                <form action="ssilka_edit.php?id=<?=$IdRef?>" method="POST" id="FormIdMess32" method="POST">
+                    <input value="<?= $ssilka?>" name="ssilkatext" type="text" placeholder="* ссылка на внешний сайт" class="costil58">
+                    <h4 id="costil59" ><button type="submit" class="btn btn-outline-success btn-sm" id="costil59" >Сохранить ссылку</button></h4>
                 </form>
                     <form action="ssilka.php?id=<?=$IdRef?>" method="POST" style=" display:flex; width:100%;" id="FormIdMess3" method="POST">
                 <?php if($s_true=null||$s_true==0)
                 {?>
-                    <h4 style=" width:100%;"><button type="submit" class="btn btn-outline-success btn-block">Справка лежит на этом сайте</button></h4>
+                    <h4 class="costil56"><button type="submit" id="costil57" class="btn btn-outline-success btn-block">Справка лежит на этом сайте</button></h4>
                     <?php
                 } else{ ?>
-                    <h4  style=" width:100%;"><button type="submit" class="btn btn-outline-info btn-block">Справка является ссылкой</button></h4>
+                    <h4 class="costil56"><button type="submit"  id="costil57" class="btn btn-outline-info btn-block">Справка является ссылкой</button></h4>
                     <?php
                 }?>
                 </form>
@@ -387,11 +388,11 @@ elseif($type==4){?>
                 <?php 
                 if($open=null||$open==0)
                 {?>
-                    <h4 style="width:100%;"><button type="submit" class="btn btn-secondary btn-block">Справка скрыта</button></h4>
+                    <h4 style="width:100%;"><button type="submit" id="costil57" class="btn btn-secondary btn-block">Справка скрыта</button></h4>
                 <?php }
                 else
                 {?>
-                    <h4 style="width:100%;"><button type="submit" class="btn btn-success btn-block">Справка в открытом доступе</button></h4>
+                    <h4 style="width:100%;"><button type="submit"  id="costil57" class="btn btn-success btn-block">Справка в открытом доступе</button></h4>
                 <?php }
                 ?>                    
                 </form>
