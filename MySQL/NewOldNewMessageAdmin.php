@@ -12,7 +12,6 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Ваши заявки</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
     <link rel='stylesheet' type='scss' media='screen' href='../programming message.css'>
     <script src='../main.js'></script>
@@ -28,6 +27,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main_mobile.css'>
 </head>
 
 <body>
@@ -36,42 +36,7 @@
         <!--Этот див тебе не нужен-->
         <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
             <!--Этот див тебе не нужен-->
-            <!-- Шапка--> 
-            <div style="margin-bottom: 70px; width:100%;">
-                <header class="p-2 bg-dark text-white">
-                    <div class="container">
-                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                            <img src="../eding4.jpg" class="img_shapka">
-                            </a>
-                            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                                <li><a href="/" class="nav-link px-2 text-white"> Панель управления </a></li>
-                                <li><a href="#" class="nav-link px-2 text-secondary"> Сообщения </a></li>                                
-                                <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-white" id="spravka_shapka"> Справка </a></li>
-                                <li><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
-                            </ul>
-
-                            <div class="text-end">
-                                <form action="/MySQL/end.php" method="post">
-                                    <a class="a" href="/profil">
-                                        <button type="submit" class="btn btn-outline-light me-2">
-                                            Выйти из профиля
-                                        </button>
-                                    </a>
-                                    <button type="button" class="btn">
-                                        <a class="a" href="/profil">
-                                            <div class="exit">
-                                                <img src="../avatar.jpg" style="border-radius: 50%;" width="50" alt="Ваш аватар не смог загрузиться. Попробуйте загрузить новое фото, если проблемма не исчезнет со временем.">
-                                            </div>
-                                        </a>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            </div>
-            <!-- Шапка-->
+          
  <!-- Шапка-->
  <div class="costil12">
                 <header class="p-2 bg-dark text-white">
@@ -308,8 +273,14 @@ AND `Password` = '$password'");
             <div class="start-right-Mess-SUPER">
                 <div class="start-right-Mess">
                     <div class="start-rieght">
-                        <div class="top_nazvan" style="display:flex;">
-                            <div>Выбранное обращение</div>
+
+          
+
+
+
+
+                        <div class="top_nazvan" style="display:flex; flex-wrap:wrap;">
+                                   <div class="costil8">Выбранное обращение</div>
                             <?php
                             if ($IdUnikmes == '') { //Если пользователем ещё не вибранно ни одно сообщение
                                 $mysql->close();
@@ -320,7 +291,7 @@ AND `Password` = '$password'");
                                 <?= $Necessity ?>
                             </div>
                             <div class="opacity-75">
-                                <div class="<?= $NclassProcess ?>" style="margin: 0 0 0 10px;"><?= $process ?></div>
+                                <div class="<?= $NclassProcess ?>" style="margin-top:0;"><?= $process ?></div>
                             </div>
                             <?php
                             }
@@ -441,11 +412,11 @@ $Otkrit_Dostyp=false;
                             <?php   
                             if ($Otkrit_Dostyp) { //Если нет ни одного сообщения от пользователя в бд    
                             ?>
-                            <form action="Nextnewmessage.php?Ne=<?=$globally_appeal_Necessity?>&Ty=<?=$globally_appeal_Type?>&Di=<?=$globally_appeal_Division?>&In=<?=$globally_appeal_IdAppeal?>&ir=<?=$NSPid?>" method="post">
+                          <form action="Nextnewmessage.php?Ne=<?=$globally_appeal_Necessity?>&Ty=<?=$globally_appeal_Type?>&Di=<?=$globally_appeal_Division?>&In=<?=$globally_appeal_IdAppeal?>&ir=<?=$NSPid?>" method="post">
                                 <div style="display:flex;">
-                                    <input type="text" name="input"  id="input" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 90%;padding: 10px; margin-top:2px;" placeholder="Напишите сообщение...">
-                                    <button id="input_btn" type="submit" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 50px; height: 50px; margin-left: 10px;margin-top:10px;">
-                                        <img src="../sam.png" style="width: 30px; height: 30px; ">
+                                    <input type="text" name="input"  id="input" class="shadow-sm mb-1 bg-white rounded" style="border: none; width: 90%;padding: 10px; margin-top:2px;" autocomplete="off" placeholder="Напишите сообщение...">
+                                    <button id="input_btn" type="submit" class="shadow-sm mb-1 bg-white rounded">
+                                        <img src="../sam.png" class="costil13">
                                     </button>
                                 </div>
                             </form>

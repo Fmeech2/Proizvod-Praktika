@@ -1,49 +1,3 @@
-<?php 
-
-if($_COOKIE['p1']==''){//Если пользователь ещё не логинился
-    header('Location: /login/');
-    exit();
-}
-
-
-$login = $_COOKIE['l1'];
-$password = $_COOKIE['p1'];
-
-
-require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
-
-$result = $mysql->query("SELECT * FROM `user` 
-WHERE `Login` = '$login' 
-AND `Password` = '$password'");
-$user=$result->fetch_assoc();
-
-if($user===null){//Если данные пользователя не совпадают в бд
-    $mysql->close();
-    setcookie('p1','',time()+60*60*24*356,"/");
-    header('Location: /login/');
-    exit();
-}
-$userID=$user['id'];
-//Если пользователь успешно зашёл
-
-
-
-$adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
-$adminid=$adminPanelIDproverka->fetch_assoc();
-$mysql->close();
-if($adminid['IdAdmin']==$userID){
-    if($_GET['message']!=''){
-        require $_SERVER['DOCUMENT_ROOT'].'/MySQL/NewOldNewMessageAdmin.php';
-        exit();
-    }
-    require $_SERVER['DOCUMENT_ROOT'].'/MySQL/NewOldNewMessageAdminMobile.php';
-    exit();
-}
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -58,7 +12,6 @@ if($adminid['IdAdmin']==$userID){
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Ваши заявки</title>
     <!--Регистрация, Заявки, Новые заявки, Профиль, -->
-    <meta name="viewport" > 
     <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
     <link rel='stylesheet' type='scss' media='screen' href='../programming message.css'>
     <script src='../main.js'></script>
@@ -76,15 +29,16 @@ if($adminid['IdAdmin']==$userID){
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='../main_mobile.css'>
 </head>
- 
+
 <body>
 
     <div class="start" style="    background-color: rgba(0, 0, 0, 0.062);   min-height: 600px;">
         <!--Этот див тебе не нужен-->
-        <div class="Start-costil">
+        <div style="width: 100%;  display: flex;flex-wrap: wrap; margin-bottom: auto; ">
             <!--Этот див тебе не нужен-->
-            <!-- Шапка-->
-            <div style="margin-bottom: 70px; width:100%;">
+  
+ <!-- Шапка-->
+ <div class="costil12">
                 <header class="p-2 bg-dark text-white">
                     <div  class="container" >
                         <div id="costil2"
@@ -95,7 +49,7 @@ if($adminid['IdAdmin']==$userID){
                             <ul id="costil" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                                 <li class="mobbail_shapka"><a href="/" class="nav-link px-2 text-white"> Оставить заявку</a></li>                                
                                 <li class="mobbail_shapka" id="sh_mobbail"><a href="/MySQL/NewOldNewMessageMobile.php" class="nav-link px-2 text-secondary"> Сообщения </a></li> <!--//для телефона-->
-                                <li class="mobbail_shapka" id="sh_pk"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-secondary"> Сообщения  </a></li>  <!--//для пк-->
+                                <li class="mobbail_shapka" id="sh_pk"><a href="/MySQL/NewOldNewMessage.php" class="nav-link px-2 text-secondary"> Сообщения  </a></li>  <!--//для пк-->                                
                                 <li class="mobbail_shapka"><a href="/reference" class="nav-link px-2 text-white" id="spravka_shapka"> Справка </a></li>
                                 <li class="mobbail_shapka" id="sh_pk"><a href="/profil" class="nav-link px-2 text-white"> Редактировать профиль </a></li>
                             </ul>
@@ -124,201 +78,13 @@ if($adminid['IdAdmin']==$userID){
             <!-- Шапка-->
 
 
+
+            
+
             <!--Сообщения-->
-            <div class="start-left-Mess2">
-                <div class="top_nazvan">Ваши обращения</div>
-                <div class="start-right_pl">
-                    <div class="scroll">
-                        <div class="list-group">
-
-
-
-                            <?php
-
-                            $IdUnikMessage = $_GET['message'];
-                            $IdUnikmes = $_GET['message'];
-
-
-                            require $_SERVER['DOCUMENT_ROOT'].'/profil/profilStart.php'; //  <-- ОБЯЗАТЕЛЬНО ДОЛЖНО СТОЯТЬ В НАЧАЛЕ КАЖДОГО PHP ФАЙЛА  <--
-
-                            $login = $_COOKIE['l1'];
-                            $password = $_COOKIE['p1'];
-
-
-                            require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
-
-                            $result = $mysql->query("SELECT * FROM `user` 
-WHERE `Login` = '$login' 
-AND `Password` = '$password'");
-                            $user = $result->fetch_assoc();
-
-                            if ($user === null) { //Если данные пользователя не совпадают в бд
-                                $mysql->close();
-                                setcookie('p1', '', time() + 60 * 60 * 24 * 356, "/");
-                                header('Location: /login/');
-                                exit();
-                            }
-                            $userID = $user['id'];
-                            //Если пользователь успешно зашёл
-
-                            $resultMessage = $mysql->query("SELECT * FROM `message` 
-WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
-
-                            $message = $resultMessage->fetch_assoc();
-
-                            if ($message === null) { //Если нет ни одного сообщения от пользователя в бд
-                                $mysql->close();
-                                echo '   
-   <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-   <div class="d-flex gap-3 w-100 justify-content-between">
-       <div>
-           <h6 class="mb-10" style="font-size: 200%;">У вас ещё нет ни одного обращения</h6>
-       </div>   
-       <div class="mb-0 text-nowrap">    
-       </div>
-   </div>
-</a>
-   ';
-                            } else { //Если сообщения всё же есть в бд
-
-                                $stack = array("0");
-                               
-                           
-
-                                while ($message !== null) {
-                                    $IdAppeal = $message['IdUniqueApplication'];
-                             
-                                   if(!in_array($IdAppeal, $stack)){
-
-                                    $globally_appeal = $mysql->query("SELECT * FROM `globally-appeal` 
-                                    WHERE `IdAppeal` = '$IdAppeal' ");
-                                    $globally_appeal = $globally_appeal->fetch_assoc();
-                                    $globally_appeal_Division =  $globally_appeal['Division'];
-                                    $globally_appeal_Type =      $globally_appeal['Type'];
-                                    $globally_appeal_Necessity = $globally_appeal['Necessity']; 
-                                    $globally_appeal_IdAppeal =  $globally_appeal['IdAppeal'];
-                                    $globally_appeal_process =   $globally_appeal['process'];
-                                    if ($globally_appeal_Necessity == "1") {
-                                        $Necessity = "Не срочно";
-                                        $Nclass = "com_vaj1";
-                                    } else if ($globally_appeal_Necessity == "2") {
-                                        $Necessity = "Важно";
-                                        $Nclass = "com_vaj2";
-                                    } else if ($globally_appeal_Necessity == "3") {
-                                        $Necessity = "Экстренно";
-                                        $Nclass = "com_vaj3";
-                                    }
-                                    if ($globally_appeal_process == "1") {
-                                        $process = "в обработке";
-                                        $NclassProcess = "com_stat1";
-                                    } else if ($globally_appeal_process == "2") {
-                                        $process = "завершено";
-                                        $NclassProcess = "com_stat2";
-                                    } else if ($globally_appeal_process == "3") {
-                                        $process = "отменено";
-                                        $NclassProcess = "com_stat3";
-                                    }
-                                    
-                                    $IdUnikMessage = $message['IdUniqueApplication'];
-                            ?>
-<!--Здесь мобильные изменения начинаются-->
-                                    <a href="NewOldNewMessage.php?message=<?= $IdUnikMessage ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"  >
-                                        <div class="d-flex gap-3 w-100 justify-content-between">
-                                        <small class="opacity-50 text-nowrap" style="  position: absolute;  right:20px;">
-                                                <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
-                                            </small>
-
-                                  
-                                            <div  style="margin-left:40px;">
-                                                <h6 class="mb-0" id="costil7">
-                                                    <?= $globally_appeal_Type ?>
-                                                </h6>
-                                                <div class="com_coob">
-                                                    <p class="mb-0 opacity-75 d-inline-block text-truncate" id="costil5">
-                                                        <?= $message['Appeal'] ?>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="mb-0 text-nowrap">
-                                                <div id="costil6" class="<?= $Nclass ?>">
-                                                    <?= $Necessity ?>
-                                                </div>
-                                                <div class="opacity-75">
-                                                    <div class="<?=$NclassProcess?>"><?=$process?></div>
-                                                </div>
-                                            </div>
-                                            </div>
-
-                                  
-                                    </a>
-<!--Здесь мобильные изменения заканчиваются-->
-
-                            <?php
-                                    array_push($stack, $IdAppeal);
-                                    }
-                                    $message = $resultMessage->fetch_assoc();                                 
-                                }
-                            }
-
-
-                            $admin_panel = $mysql->query("SELECT * FROM `admin-panel`");
-                            $admin_arr = $admin_panel->fetch_assoc();
-                            $admin_id = $admin_arr['IdAdmin'];
-                            $admin_nickname = $admin_arr['nickname'];
-
-                            $resultMessage = $mysql->query("SELECT * FROM `message` 
-            WHERE `IdUser` = '$userID' AND `IdUniqueApplication` = '$IdUnikMessage' ORDER BY `id`");
-
-                            $message = $resultMessage->fetch_assoc();
-
-
-
-
-
-
-
-
-                            $IdAppeal = $_GET['message'];
-                            $globally_appeal = $mysql->query("SELECT * FROM `globally-appeal` 
-                            WHERE `IdAppeal` = '$IdAppeal' ");
-                            $globally_appeal = $globally_appeal->fetch_assoc();
-                            $globally_appeal_Division =  $globally_appeal['Division'];
-                            $globally_appeal_Type =      $globally_appeal['Type'];
-                            $globally_appeal_Necessity = $globally_appeal['Necessity'];
-                            $globally_appeal_IdAppeal =  $globally_appeal['IdAppeal'];
-                            $globally_appeal_process =   $globally_appeal['process'];
-                            if ($globally_appeal_process == "1") {
-                                $process = "в обработке";
-                                $NclassProcess = "com_stat1";
-                            } else if ($globally_appeal_process == "2") {
-                                $process = "завершено";
-                                $NclassProcess = "com_stat2";
-                            } else if ($globally_appeal_process == "3") {
-                                $process = "отменено";
-                                $NclassProcess = "com_stat3";
-                            }
-                            if ($globally_appeal_Necessity == "1") {
-                                $Necessity = "Не срочно";
-                                $Nclass = "com_vaj1";
-                            } else if ($globally_appeal_Necessity == "2") {
-                                $Necessity = "Важно";
-                                $Nclass = "com_vaj2";
-                            } else if ($globally_appeal_Necessity == "3") {
-                                $Necessity = "Экстренно";
-                                $Nclass = "com_vaj3";
-                            }
-                            $IdUnikMessage = $IdAppeal; 
-                            ?>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--Сообщения-->
-            <div class="start-right-Mess-SUPER2">
-                <div class="start-right-Mess">
+            <div class="start-left-Mess">
+                
+            <div class="start-right-Mess">
                     <div class="start-rieght">
                         <div class="top_nazvan" style="display:flex;">
                             <div>Выбранное обращение</div>
@@ -332,8 +98,8 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                                 <?= $Necessity ?>
                             </div>
                             <div class="opacity-75">
-                                                    <div class="<?=$NclassProcess?>" style="margin-top:0;"><?=$process?></div>
-                                                </div>
+                                <div class="<?= $NclassProcess ?>" style="margin: 0 0 0 10px;"><?= $process ?></div>
+                            </div>
                             <?php
                             }
                             ?>
@@ -341,12 +107,14 @@ WHERE `IdUser` = '$userID' ORDER BY `id` DESC");
                         </div>
                         <div class="top_nazvan_4"  style="display: flex;flex-wrap: wrap;padding-bottom:10px;">
                         <div style="margin-right: 10px;  margin-top: 10px;  "><?=$globally_appeal_Division?></div>
-                        <?php if($globally_appeal_process==1){?>
+                        <?php if($_GET['message']!=''){?>
                         <form action="/MySQL/progress.php?i=<?=$globally_appeal_IdAppeal?>" method="post">
-                        <button type="submit" name="yes" class="com_stat_btn" >Закрыть обращение</button>                        
+                        <button type="submit" name="yes" class="com_stat_btn" >Закрыть обращение</button>
+                        <button type="submit" name="no" class="com_stat_btn2" >Отменить обращение</button>
                                 </form>
                                 <?php }?>
                     </div>
+                    
                         <div class="start-right_pl2">
                             <div id="scrolVnizJs" class="scroll2">
                                 <div class="list-group">
@@ -367,7 +135,7 @@ $Otkrit_Dostyp=false;
    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
    <div class="d-flex gap-3 w-100 justify-content-between">
        <div>
-           <h6 class="mb-10" style="font-size: 200%;">У вас ещё нет ни одного обращения</h6>
+           <h6 class="mb-10" style="font-size: 140%;">Выберете обращение что бы прочитать переписку</h6>
        </div>   
        <div class="mb-0 text-nowrap">    
        </div>
@@ -396,7 +164,7 @@ $Otkrit_Dostyp=false;
                                         $NSPname = $NSPname['SName'] . " " . $NSPname['Name'] . " " . $NSPname['PName'];
                                             
                                             $resultMessage = $mysql->query("SELECT * FROM `message` 
-                                            WHERE `IdUser` = '$userID' AND `IdUniqueApplication` = '$IdUnikMessage' ORDER BY `id`");
+                                            WHERE `IdUniqueApplication` = '$IdUnikMessage' ORDER BY `id`");
                                             $message = $resultMessage->fetch_assoc();
                                         while ($message !== null) {
                                 
@@ -442,14 +210,14 @@ $Otkrit_Dostyp=false;
                                     }
                                     $mysql->close();
                                     ?>
+
+
+
+
                                 </div>
                             </div>
-
-                            
-
-
                             <?php   
-                            if ($Otkrit_Dostyp) { //Если нет ни одного сообщения от пользователя в бд                            
+                            if ($Otkrit_Dostyp) { //Если нет ни одного сообщения от пользователя в бд    
                             ?>
                             <form action="Nextnewmessage.php?Ne=<?=$globally_appeal_Necessity?>&Ty=<?=$globally_appeal_Type?>&Di=<?=$globally_appeal_Division?>&In=<?=$globally_appeal_IdAppeal?>&ir=<?=$NSPid?>" method="post">
                                 <div style="display:flex;">
@@ -464,20 +232,208 @@ $Otkrit_Dostyp=false;
                     </div>
                 </div>
             </div>
+            <!--Сообщения-->
+            <div class="start-right-Mess-SUPER">
+            <div class="top_nazvan">Ваши обращения</div>
+                <div class="start-right_pl">
+                    <div class="scroll">
+                        <div class="list-group">
+
+
+
+                            <?php
+
+                            $IdUnikMessage = $_GET['message'];
+                            $IdUnikmes = $_GET['message'];
+
+
+                            require $_SERVER['DOCUMENT_ROOT'].'/profil/profilStart.php'; //  <-- ОБЯЗАТЕЛЬНО ДОЛЖНО СТОЯТЬ В НАЧАЛЕ КАЖДОГО PHP ФАЙЛА  <--
+
+                            $login = $_COOKIE['l1'];
+                            $password = $_COOKIE['p1'];
+
+
+                            require $_SERVER['DOCUMENT_ROOT'].'/MySQL/connectSQL.php';
+
+                            $result = $mysql->query("SELECT * FROM `user` 
+WHERE `Login` = '$login' 
+AND `Password` = '$password'");
+                            $user = $result->fetch_assoc();
+
+                            if ($user === null) { //Если данные пользователя не совпадают в бд
+                                $mysql->close();
+                                setcookie('p1', '', time() + 60 * 60 * 24 * 356, "/");
+                                header('Location: /login/');
+                                exit();
+                            }
+                            $userID = $user['id'];
+                            //Если пользователь успешно зашёл
+
+                            $resultMessage = $mysql->query("SELECT * FROM `message` ORDER BY `id` DESC");
+
+                            $message = $resultMessage->fetch_assoc();
+
+                            if ($message === null) { //Если нет ни одного сообщения от пользователя в бд
+                                $mysql->close();
+                                echo '   
+   <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+   <div class="d-flex gap-3 w-100 justify-content-between">
+       <div>
+           <h6 class="mb-10" style="font-size: 200%;">У вас ещё нет ни одного обращения</h6>
+       </div>   
+       <div class="mb-0 text-nowrap">    
+       </div>
+   </div>
+</a>
+   ';
+                            } else { //Если сообщения всё же есть в бд
+
+                                $stack = array("0");
+                               
+                           
+
+                                while ($message !== null) {
+                                    $IdAppeal = $message['IdUniqueApplication'];
+                             
+                                   if(!in_array($IdAppeal, $stack)){
+
+                                    $globally_appeal = $mysql->query("SELECT * FROM `globally-appeal` 
+                                    WHERE `IdAppeal` = '$IdAppeal' ");
+                                    $globally_appeal = $globally_appeal->fetch_assoc();
+                                    $globally_appeal_Division =  $globally_appeal['Division'];
+                                    $globally_appeal_Type =      $globally_appeal['Type'];
+                                    $globally_appeal_Necessity = $globally_appeal['Necessity']; 
+                                    $globally_appeal_IdAppeal =  $globally_appeal['IdAppeal'];
+                                    $globally_appeal_process =   $globally_appeal['process'];
+                                    if ($globally_appeal_Necessity == "1") {
+                                        $Necessity = "Не срочно";
+                                        $Nclass = "com_vaj1";
+                                    } else if ($globally_appeal_Necessity == "2") {
+                                        $Necessity = "Важно";
+                                        $Nclass = "com_vaj2";
+                                    } else if ($globally_appeal_Necessity == "3") {
+                                        $Necessity = "Экстренно";
+                                        $Nclass = "com_vaj3";
+                                    }
+                                    $IdUnikMessage = $IdAppeal; 
+        
+                                    if ($globally_appeal_process == "1") {
+                                        $process = "в обработке";
+                                        $NclassProcess = "com_stat1";
+                                    } else if ($globally_appeal_process == "2") {
+                                        $process = "завершено";
+                                        $NclassProcess = "com_stat2";
+                                    } else if ($globally_appeal_process == "3") {
+                                        $process = "отменено";
+                                        $NclassProcess = "com_stat3";
+                                    }
+                                    $IdUnikMessage = $message['IdUniqueApplication'];
+                            ?>
+
+                                    <a href="?message=<?= $IdUnikMessage ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                                        <div class="d-flex gap-3 w-100 justify-content-between">
+                                            <div>
+                                                <h6 class="mb-0">
+                                                    <?= $globally_appeal_Type ?>
+                                                </h6>
+                                                <div class="com_coob">
+                                                    <p class="mb-0 opacity-75 d-inline-block text-truncate" style="width:360px;">
+                                                        <?= $message['Appeal'] ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <small class="opacity-50 text-nowrap">
+                                                <?= substr($message['Date'], 11,  5)." ".substr($message['Date'], 8,  2).".".substr($message['Date'], 5,  2) ?>
+                                            </small>
+                                            <div class="mb-0 text-nowrap">
+                                                <div class="<?= $Nclass ?>">
+                                                    <?= $Necessity ?>
+                                                </div>
+                                                <div class="opacity-75">
+                                                    <div class="<?=$NclassProcess?>"><?=$process?></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                            <?php
+                                    array_push($stack, $IdAppeal);
+                                    }
+                                    $message = $resultMessage->fetch_assoc();                                 
+                                }
+                            }
+
+
+                            $admin_panel = $mysql->query("SELECT * FROM `admin-panel`");
+                            $admin_arr = $admin_panel->fetch_assoc();
+                            $admin_id = $admin_arr['IdAdmin'];
+                            $admin_nickname = $admin_arr['nickname'];
+
+                            $IdUnikMessage = $_GET['message'];
+                            $resultMessage = $mysql->query("SELECT * FROM `message` 
+            WHERE `IdUniqueApplication` = '$IdUnikMessage' ORDER BY `id`");
+
+                            $message = $resultMessage->fetch_assoc();
+
+
+
+
+
+
+
+
+                            $IdAppeal = $_GET['message'];
+                            $globally_appeal = $mysql->query("SELECT * FROM `globally-appeal` 
+                            WHERE `IdAppeal` = '$IdAppeal' ");
+                            $globally_appeal = $globally_appeal->fetch_assoc();
+                            $globally_appeal_Division =  $globally_appeal['Division'];
+                            $globally_appeal_Type =      $globally_appeal['Type'];
+                            $globally_appeal_Necessity = $globally_appeal['Necessity'];
+                            $globally_appeal_IdAppeal =  $globally_appeal['IdAppeal'];
+                            $globally_appeal_process =   $globally_appeal['process'];
+                            if ($globally_appeal_Necessity == "1") {
+                                $Necessity = "Не срочно";
+                                $Nclass = "com_vaj1";
+                            } else if ($globally_appeal_Necessity == "2") {
+                                $Necessity = "Важно";
+                                $Nclass = "com_vaj2";
+                            } else if ($globally_appeal_Necessity == "3") {
+                                $Necessity = "Экстренно";
+                                $Nclass = "com_vaj3";
+                            }
+                            $IdUnikMessage = $IdAppeal; 
+
+                            if ($globally_appeal_process == "1") {
+                                $process = "в обработке";
+                                $NclassProcess = "com_stat1";
+                            } else if ($globally_appeal_process == "2") {
+                                $process = "завершено";
+                                $NclassProcess = "com_stat2";
+                            } else if ($globally_appeal_process == "3") {
+                                $process = "отменено";
+                                $NclassProcess = "com_stat3";
+                            }
+                            ?>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 
     <script type="text/javascript">
-  
+        let andegraynd= true;
         var block = document.getElementById("scrolVnizJs");
         block.scrollTop = block.scrollHeight;
 
 
 
 var input = document.getElementById("input");
-;
+
 </script>
 </body>
 
