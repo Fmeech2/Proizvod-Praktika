@@ -224,6 +224,15 @@ width: 25%;
     color: white;
     
 }
+.top_zaiv2{
+    border-radius: 10px 10px 0 0;
+    padding: 4px 20px 4px 20px;
+    font-weight: 650;
+    font-size: 140%;
+    background-color: rgb(83, 83, 83);
+    color: white;
+    
+}
 #selectID{
  
 }
@@ -621,6 +630,28 @@ height: 550px;
     margin-left: 20px; 
     font-size:120%;
 }
+.costil30{
+    width: 48%;
+}
+.costil31{
+    margin-left: 20px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(/view.svg) 0 0 no-repeat;
+}
+.password-control.view {
+	background: url(/no-view.svg) 0 0 no-repeat;
+}
+.costil39{
+}
 
 
 
@@ -628,6 +659,10 @@ height: 550px;
 
 
 
+
+
+
+/****************************************/
     @media (max-width:1279px){
         #reg_mobail{
             zoom: 0.95;  

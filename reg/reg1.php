@@ -40,23 +40,7 @@
                         <small id="emailHelp" class="form-text text-muted">Хорошо запомните ваш логин и пароль.</small>
                     </div>
                     <style>
-                        .password {
-                            position: relative;
-                        }
-
-                        .password-control {
-                            position: absolute;
-                            top: 11px;
-                            right: 6px;
-                            display: inline-block;
-                            width: 20px;
-                            height: 20px;
-                            background: url(/view.svg) 0 0 no-repeat;
-                        }
-
-                        .password-control.view {
-                            background: url(/no-view.svg) 0 0 no-repeat;
-                        }
+                   
                     </style>
                     <script>
                         function show_hide_password(target) {

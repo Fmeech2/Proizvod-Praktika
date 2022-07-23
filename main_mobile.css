@@ -284,6 +284,15 @@ width: 25%;
     color: white;
     
 }
+.top_zaiv2{
+    border-radius: 40px 40px 0 0;
+    padding: 20px 50px 20px 50px;
+    font-weight: 650;
+    font-size: 450%;
+    background-color: rgb(83, 83, 83);
+    color: white;
+    
+}
 #selectID{
  font-size: 90%;
  border-radius: 40px;
@@ -307,6 +316,16 @@ width: 25%;
 }
 #selectID2{
     font-size: 90%;
+    border-radius: 40px;
+    padding: 30px 20px 30px 20px;
+}
+#selectIDadmin{
+    font-size: 400%;
+    border-radius: 40px;
+    padding: 30px 20px 30px 20px;
+}
+#selectID2admin{
+    font-size: 400%;
     border-radius: 40px;
     padding: 30px 20px 30px 20px;
 }
@@ -742,7 +761,61 @@ display: none;
     margin-left: auto;
     margin-right: auto;
 }
+.costil30{
+    width: 98%;
+}
+.costil31{
+    margin-left: 40px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    font-size: 400%;
+}
+.costil32{
+    font-size: 400%;
+}
+.costil33{
+    font-size: 400%;
+}
+.costil34{
+    font-size: 400%;
+}
+.costil35{
+    font-size: 400%;
+}
+#costil36{
+    font-size: 400%;
+    margin-left: 10%;
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#costil37{
+    font-size: 400%;
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.costil38{
+    font-size: 400%;
+    line-height: 1.2;
+}
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 6px;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: url(/view.svg) 0 0 no-repeat;
+}
+.password-control.view {
+	background: url(/no-view.svg) 0 0 no-repeat;
+}
+#exampleFormControlTextarea24{
 
+    height:1000px;
+
+}
 
 
 }

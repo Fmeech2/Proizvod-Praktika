@@ -34,9 +34,11 @@ $adminPanelIDproverka = $mysql->query("SELECT * FROM `admin-panel`");
 $adminid=$adminPanelIDproverka->fetch_assoc();
 $mysql->close();
 if($adminid['IdAdmin']==$userID){
+    //страница админа
     require $_SERVER['DOCUMENT_ROOT'].'/adminindex.php';
 }
 else{
+    //страница пользователя
     require $_SERVER['DOCUMENT_ROOT'].'/index2.php';
 }
 ?>
